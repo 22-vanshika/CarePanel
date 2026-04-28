@@ -1,0 +1,20 @@
+{
+  "data": {
+    "id": "p-1001",
+    "firstName": "Elena",
+    "lastName": "Rostova",
+    "age": 45,
+    "gender": "Female",
+    "bloodType": "A+",
+    "diagnosis": "Type 2 Diabetes",
+    "status": "ACTIVE",
+    "lastVisit": "2026-04-20T10:30:00Z",
+    "assignedDoctor": "Dr. Sarah Chen",
+    "contactInfo": {
+      "phone": "555-0101",
+      "email": "elena.r@example.com",
+      "address": "123 Maple St, Springfield"
+    }
+  },
+  "success": true
+}

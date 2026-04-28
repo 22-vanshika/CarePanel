@@ -1,0 +1,65 @@
+// Mocks the API response payload for dashboard charts and KPIs.
+{
+    "totalPatients": 1250,
+    "activeAdmissions": 120,
+    "pendingAppointments": 24,
+    "totalRevenue": 45000,
+    "dailyRevenue": 2450,
+    "appointmentRate": 85,
+    "revenueByMonth": [
+        {
+            "name": "Jan",
+            "value": 45000
+        },
+        {
+            "name": "Feb",
+            "value": 55000
+        },
+        {
+            "name": "Mar",
+            "value": 65000
+        },
+        {
+            "name": "Apr",
+            "value": 75000
+        },
+        {
+            "name": "May",
+            "value": 85000
+        },
+        {
+            "name": "Jun",
+            "value": 95000
+        }
+    ],
+    "revenueByDay": [
+        {
+            "name": "Mon",
+            "value": 5000
+        },
+        {
+            "name": "Tue",
+            "value": 7000
+        },
+        {
+            "name": "Wed",
+            "value": 3000
+        },
+        {
+            "name": "Thu",
+            "value": 9000
+        },
+        {
+            "name": "Fri",
+            "value": 6000
+        },
+        {
+            "name": "Sat",
+            "value": 8000
+        },
+        {
+            "name": "Sun",
+            "value": 4000
+        }
+    ]
+}

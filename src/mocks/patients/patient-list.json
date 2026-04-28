@@ -1,0 +1,214 @@
+{
+  "data": [
+    {
+      "id": "p-1001",
+      "firstName": "Elena",
+      "lastName": "Rostova",
+      "age": 45,
+      "gender": "Female",
+      "bloodType": "A+",
+      "diagnosis": "Type 2 Diabetes",
+      "status": "ACTIVE",
+      "lastVisit": "2026-04-20T10:30:00Z",
+      "assignedDoctor": "Dr. Sarah Chen",
+      "contactInfo": {
+        "phone": "555-0101",
+        "email": "elena.r@example.com",
+        "address": "123 Maple St, Springfield"
+      }
+    },
+    {
+      "id": "p-1002",
+      "firstName": "Marcus",
+      "lastName": "Johnson",
+      "age": 62,
+      "gender": "Male",
+      "bloodType": "O-",
+      "diagnosis": "Hypertension",
+      "status": "OBSERVATION",
+      "lastVisit": "2026-04-26T14:15:00Z",
+      "assignedDoctor": "Dr. Emily Davis",
+      "contactInfo": {
+        "phone": "555-0102",
+        "email": "marcus.j@example.com",
+        "address": "456 Oak Ave, Riverville"
+      }
+    },
+    {
+      "id": "p-1003",
+      "firstName": "Sophia",
+      "lastName": "Martinez",
+      "age": 28,
+      "gender": "Female",
+      "bloodType": "B+",
+      "diagnosis": "Asthma Exacerbation",
+      "status": "CRITICAL",
+      "lastVisit": "2026-04-28T09:00:00Z",
+      "assignedDoctor": "Dr. James Wilson",
+      "contactInfo": {
+        "phone": "555-0103",
+        "email": "sophia.m@example.com",
+        "address": "789 Pine Ln, Lakeside"
+      }
+    },
+    {
+      "id": "p-1004",
+      "firstName": "Liam",
+      "lastName": "O'Connor",
+      "age": 35,
+      "gender": "Male",
+      "bloodType": "AB+",
+      "diagnosis": "Post-Op Appendectomy",
+      "status": "DISCHARGED",
+      "lastVisit": "2026-04-15T11:45:00Z",
+      "assignedDoctor": "Dr. Michael Brown",
+      "contactInfo": {
+        "phone": "555-0104",
+        "email": "liam.o@example.com",
+        "address": "321 Cedar Rd, Mountain View"
+      }
+    },
+    {
+      "id": "p-1005",
+      "firstName": "Aisha",
+      "lastName": "Patel",
+      "age": 50,
+      "gender": "Female",
+      "bloodType": "A-",
+      "diagnosis": "Rheumatoid Arthritis",
+      "status": "ACTIVE",
+      "lastVisit": "2026-04-22T08:20:00Z",
+      "assignedDoctor": "Dr. Sarah Chen",
+      "contactInfo": {
+        "phone": "555-0105",
+        "email": "aisha.p@example.com",
+        "address": "654 Birch Ct, Sunnyside"
+      }
+    },
+    {
+      "id": "p-1006",
+      "firstName": "David",
+      "lastName": "Kim",
+      "age": 71,
+      "gender": "Male",
+      "bloodType": "O+",
+      "diagnosis": "Congestive Heart Failure",
+      "status": "CRITICAL",
+      "lastVisit": "2026-04-27T16:30:00Z",
+      "assignedDoctor": "Dr. James Wilson",
+      "contactInfo": {
+        "phone": "555-0106",
+        "email": "david.k@example.com",
+        "address": "987 Walnut Dr, Hilltop"
+      }
+    },
+    {
+      "id": "p-1007",
+      "firstName": "Emma",
+      "lastName": "Garcia",
+      "age": 41,
+      "gender": "Female",
+      "bloodType": "B-",
+      "diagnosis": "Migraine Protocol",
+      "status": "OBSERVATION",
+      "lastVisit": "2026-04-28T10:10:00Z",
+      "assignedDoctor": "Dr. Emily Davis",
+      "contactInfo": {
+        "phone": "555-0107",
+        "email": "emma.g@example.com",
+        "address": "159 Spruce Way, Brookside"
+      }
+    },
+    {
+      "id": "p-1008",
+      "firstName": "Noah",
+      "lastName": "Smith",
+      "age": 19,
+      "gender": "Male",
+      "bloodType": "A+",
+      "diagnosis": "Concussion",
+      "status": "DISCHARGED",
+      "lastVisit": "2026-04-25T13:00:00Z",
+      "assignedDoctor": "Dr. Michael Brown",
+      "contactInfo": {
+        "phone": "555-0108",
+        "email": "noah.s@example.com",
+        "address": "753 Cherry Blvd, Westfield"
+      }
+    },
+    {
+      "id": "p-1009",
+      "firstName": "Olivia",
+      "lastName": "Taylor",
+      "age": 55,
+      "gender": "Female",
+      "bloodType": "O+",
+      "diagnosis": "Hypothyroidism",
+      "status": "ACTIVE",
+      "lastVisit": "2026-04-18T09:30:00Z",
+      "assignedDoctor": "Dr. Sarah Chen",
+      "contactInfo": {
+        "phone": "555-0109",
+        "email": "olivia.t@example.com",
+        "address": "852 Ash Pl, Northfield"
+      }
+    },
+    {
+      "id": "p-1010",
+      "firstName": "William",
+      "lastName": "Anderson",
+      "age": 68,
+      "gender": "Male",
+      "bloodType": "AB-",
+      "diagnosis": "Pneumonia",
+      "status": "CRITICAL",
+      "lastVisit": "2026-04-28T07:45:00Z",
+      "assignedDoctor": "Dr. James Wilson",
+      "contactInfo": {
+        "phone": "555-0110",
+        "email": "william.a@example.com",
+        "address": "951 Elm St, Southgate"
+      }
+    },
+    {
+      "id": "p-1011",
+      "firstName": "Isabella",
+      "lastName": "Thomas",
+      "age": 31,
+      "gender": "Female",
+      "bloodType": "B+",
+      "diagnosis": "Gastroenteritis",
+      "status": "OBSERVATION",
+      "lastVisit": "2026-04-27T20:20:00Z",
+      "assignedDoctor": "Dr. Emily Davis",
+      "contactInfo": {
+        "phone": "555-0111",
+        "email": "isabella.t@example.com",
+        "address": "357 Poplar Dr, Eastside"
+      }
+    },
+    {
+      "id": "p-1012",
+      "firstName": "James",
+      "lastName": "Jackson",
+      "age": 48,
+      "gender": "Male",
+      "bloodType": "A-",
+      "diagnosis": "Kidney Stones",
+      "status": "DISCHARGED",
+      "lastVisit": "2026-04-24T15:50:00Z",
+      "assignedDoctor": "Dr. Michael Brown",
+      "contactInfo": {
+        "phone": "555-0112",
+        "email": "james.j@example.com",
+        "address": "246 Willow Ln, Westend"
+      }
+    }
+  ],
+  "success": true,
+  "pagination": {
+    "page": 1,
+    "pageSize": 12,
+    "total": 12
+  }
+}
