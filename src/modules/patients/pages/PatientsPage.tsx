@@ -47,10 +47,11 @@ const PatientsPage: React.FC = () => {
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Patients</h1>
           <p className="text-sm text-slate-500 mt-1">Manage and view patient directory</p>
+          <p className="text-xs text-slate-400 mt-1">Click 'Demo Notification' to test the Service Worker integration</p>
         </div>
         <div className="flex items-center space-x-4">
           <button onClick={triggerTestNotification} className="btn-secondary">
-            Test Notification
+            🔔 Demo Notification
           </button>
           <ViewToggle viewMode={viewMode} onToggle={setViewMode} />
         </div>

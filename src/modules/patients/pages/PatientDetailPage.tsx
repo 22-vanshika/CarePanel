@@ -13,8 +13,8 @@ const PatientDetailPage: React.FC = () => {
     return (
       <div className="p-6 max-w-4xl mx-auto space-y-6 animate-pulse">
         <div className="h-8 bg-slate-200 w-24 rounded-md mb-8"></div>
-        <div className="bg-white border border-slate-200 rounded-xl p-8 h-64"></div>
-        <div className="bg-white border border-slate-200 rounded-xl p-8 h-48"></div>
+        <div className="card p-8 h-64"></div>
+        <div className="card p-8 h-48"></div>
       </div>
     );
   }
@@ -22,7 +22,7 @@ const PatientDetailPage: React.FC = () => {
   if (error || !patient) {
     return (
       <div className="p-6 max-w-4xl mx-auto mt-12">
-        <div className="text-center bg-white rounded-xl border border-slate-200 p-12">
+        <div className="text-center card p-12">
           <h3 className="text-xl font-semibold text-slate-900 mb-2">Patient Not Found</h3>
           <p className="text-slate-500 mb-8">{error || "The patient record could not be found."}</p>
           <button 
@@ -48,7 +48,7 @@ const PatientDetailPage: React.FC = () => {
         Back to Directory
       </button>
 
-      <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden mb-6">
+      <div className="card overflow-hidden mb-6">
         <div className="p-8 border-b border-slate-200 flex justify-between items-start">
           <div>
             <h1 className="text-3xl font-bold text-slate-900">
@@ -102,7 +102,7 @@ const PatientDetailPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
+      <div className="card overflow-hidden">
         <div className="p-8">
           <h3 className="text-lg font-semibold text-slate-900 mb-4 border-b border-slate-100 pb-2">
             Contact Information

@@ -19,8 +19,8 @@ export const useAuth = () => {
             const authUser = await loginWithEmail(credentials.email, credentials.password);
             setUser(authUser);
         } catch (err) {
-            const message = err instanceof Error ? err.message : 'Login failed'
-            setError(message)
+            const message = err instanceof Error ? err.message : 'Operation failed';
+            setError(message);
         } finally {
             setLoading(false);
         }
@@ -31,8 +31,9 @@ export const useAuth = () => {
             setLoading(true);
             await firebaseLogout();
             clearUser();
-        } catch (err: any) {
-            setError(err.message || 'Logout failed');
+        } catch (err) {
+            const message = err instanceof Error ? err.message : 'Operation failed';
+            setError(message);
         } finally {
             setLoading(false);
         }

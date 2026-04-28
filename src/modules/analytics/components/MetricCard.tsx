@@ -1,11 +1,11 @@
-import React from 'react';
+import { memo } from 'react';
 import type { MetricCard as MetricCardType } from '../types';
 
 interface MetricCardProps {
     metric: MetricCardType;
 }
 
-export const MetricCard: React.FC<MetricCardProps> = ({ metric }) => {
+export const MetricCard = memo<MetricCardProps>(({ metric }) => {
     const renderTrend = () => {
         if (metric.trendDirection === 'UP') {
             return (
@@ -43,4 +43,4 @@ export const MetricCard: React.FC<MetricCardProps> = ({ metric }) => {
             </div>
         </div>
     );
-};
+});
