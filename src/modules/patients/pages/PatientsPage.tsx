@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { usePatients } from '../hooks/usePatients';
 import { usePatientStore, selectViewMode } from '../store/patientStore';
@@ -14,9 +14,9 @@ const PatientsPage: React.FC = () => {
   const setViewMode = usePatientStore(state => state.setViewMode);
   const { triggerTestNotification } = useNotifications();
 
-  const handlePatientClick = (id: string) => {
+  const handlePatientClick = useCallback((id: string) => {
     navigate(`/patients/${id}`);
-  };
+  }, [navigate]);
 
   const resetFilters = usePatientStore(state => state.resetFilters);
   const handleRetry = () => resetFilters();

@@ -1,7 +1,7 @@
 import { Component, type ReactNode, type ErrorInfo } from 'react';
 
 interface ErrorBoundaryProps {
-    children: ReactNode;
+    children?: ReactNode;
 }
 
 interface ErrorBoundaryState {
@@ -28,12 +28,12 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
     };
 
     render() {
-        if (this.state.hasError) {
+        if (this.state.hasError || !this.props.children) {
             return (
-                <div className="flex items-center justify-center min-h-screen" style={{ backgroundColor: 'var(--color-bg)' }}>
+                <div className="flex items-center justify-center min-h-screen bg-[var(--color-bg)]">
                     <div className="card text-center p-8 flex flex-col items-center gap-4">
-                        <h1 className="text-2xl font-bold" style={{ color: 'var(--color-text)' }}>Something went wrong</h1>
-                        <p style={{ color: 'var(--color-text-muted)' }}>An unexpected error occurred. Please refresh the page.</p>
+                        <h1 className="text-2xl font-bold text-[var(--color-text)]">Something went wrong</h1>
+                        <p className="text-[var(--color-text-muted)]">An unexpected error occurred. Please refresh the page.</p>
                         <button
                             onClick={this.handleRefresh}
                             className="btn-primary"

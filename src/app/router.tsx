@@ -1,11 +1,12 @@
 // Defines the global React Router browser routing configuration.
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
-import MainLayout from './layouts/MainLayout'
-import AuthLayout from './layouts/AuthLayout'
+import MainLayout from '@app/layouts/MainLayout'
+import AuthLayout from '@app/layouts/AuthLayout'
 import LoginPage from '@modules/auth/pages/LoginPage';
-import PageSkeleton from '../shared/components/PageSkeleton';
-import PrivateRoute from '../modules/auth/components/PrivateRoute'
+import PageSkeleton from '@shared/components/PageSkeleton';
+import PrivateRoute from '@modules/auth/components/PrivateRoute'
+import ErrorBoundary from '@shared/components/ErrorBoundary'
 
 // Lazy load all protected pages
 const DashboardPage = lazy(() => import('@modules/analytics/pages/DashboardPage'))
@@ -26,11 +27,12 @@ export const router = createBrowserRouter([
     },
     {
         element: <PrivateRoute><MainLayout /></PrivateRoute>,
+        errorElement: <ErrorBoundary />,
         children: [
             { path: '/dashboard', element: <Suspense fallback={<PageSkeleton/>}><DashboardPage /></Suspense> },
             { path: '/patients', element: <Suspense fallback={<PageSkeleton/>}><PatientsPage /></Suspense> },
-            { path: '/patients/:id', element: <Suspense fallback={<div>Loading...</div>}><PatientDetailPage /></Suspense> },
-            { path: '/analytics', element: <Suspense fallback={<div>Loading...</div>}><AnalyticsPage /></Suspense> },
+            { path: '/patients/:id', element: <Suspense fallback={<PageSkeleton/>}><PatientDetailPage /></Suspense> },
+            { path: '/analytics', element: <Suspense fallback={<PageSkeleton/>}><AnalyticsPage /></Suspense> },
         ]
     }
 ])
