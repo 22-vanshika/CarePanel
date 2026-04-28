@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+/* Base Resets and Variables Application */
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-size: var(--text-base);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* 
+ * SEMANTIC UTILITY LAYER 
+ * Keep minimal! Only define patterns used repeatedly that don't fit well as a pure React component,
+ * or fundamental building blocks.
+ */
+@layer components {
+  .btn-primary {
+    @apply bg-[var(--color-primary)] text-[var(--color-surface)] px-[var(--space-4)] py-[var(--space-2)] rounded-[var(--radius-md)] font-medium transition-opacity hover:opacity-90;
+  }
+  
+  .btn-secondary {
+    @apply bg-[transparent] text-[var(--color-primary)] border border-[var(--color-primary)] px-[var(--space-4)] py-[var(--space-2)] rounded-[var(--radius-md)] font-medium transition-colors hover:bg-[var(--color-bg)];
+  }
+
+  .card {
+    @apply bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-[var(--space-6)] shadow-[var(--shadow-md)] border border-[var(--color-secondary)]/20;
+  }
+
+  .input-field {
+    @apply w-full bg-[var(--color-surface)] border border-[var(--color-secondary)] rounded-[var(--radius-md)] px-[var(--space-3)] py-[var(--space-2)] text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 transition-shadow;
+  }
+}

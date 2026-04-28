@@ -1,0 +1,52 @@
+:root {
+  /* Colors - Light Theme (Default) */
+  --color-primary: #2563eb;    /* Core brand color */
+  --color-secondary: #64748b;  /* Supporting elements */
+  --color-bg: #f8fafc;         /* Main app background */
+  --color-surface: #ffffff;    /* Cards, modals, panels */
+  --color-text: #0f172a;       /* Primary text */
+  --color-text-muted: #475569; /* Secondary/helper text */
+  --color-success: #10b981;    /* Success states */
+  --color-error: #ef4444;      /* Destructive actions, errors */
+  --color-warning: #f59e0b;    /* Warnings, alerts */
+
+  /* Spacing Scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  /* Font Sizes */
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+[data-theme="dark"] {
+  /* Colors - Dark Theme Override */
+  --color-primary: #3b82f6;
+  --color-secondary: #94a3b8;
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-text: #f8fafc;
+  --color-text-muted: #cbd5e1;
+  --color-success: #34d399;
+  --color-error: #f87171;
+  --color-warning: #fbbf24;
+}
