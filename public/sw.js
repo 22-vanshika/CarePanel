@@ -11,7 +11,7 @@ self.addEventListener('push', (event) => {
     const title = data.title || 'New Notification';
     const options = {
         body: data.body || '',
-        icon: '/favicon.svg'
+        icon: '/favicon.png'
     };
     event.waitUntil(self.registration.showNotification(title, options));
 });
