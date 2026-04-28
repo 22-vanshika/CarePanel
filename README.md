@@ -116,7 +116,6 @@ src/
 
 ```bash
 git clone https://github.com/your-username/healthcare-saas.git
-cd healthcare-saas
 npm install
 ```
 
