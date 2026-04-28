@@ -3,7 +3,8 @@ import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 import MainLayout from './layouts/MainLayout'
 import AuthLayout from './layouts/AuthLayout'
-import LoginPage from '@modules/auth/pages/LoginPage'
+import LoginPage from '@modules/auth/pages/LoginPage';
+import PageSkeleton from '../shared/components/PageSkeleton';
 import PrivateRoute from '../modules/auth/components/PrivateRoute'
 
 // Lazy load all protected pages
@@ -26,8 +27,8 @@ export const router = createBrowserRouter([
     {
         element: <PrivateRoute><MainLayout /></PrivateRoute>,
         children: [
-            { path: '/dashboard', element: <Suspense fallback={<div>Loading...</div>}><DashboardPage /></Suspense> },
-            { path: '/patients', element: <Suspense fallback={<div>Loading...</div>}><PatientsPage /></Suspense> },
+            { path: '/dashboard', element: <Suspense fallback={<PageSkeleton/>}><DashboardPage /></Suspense> },
+            { path: '/patients', element: <Suspense fallback={<PageSkeleton/>}><PatientsPage /></Suspense> },
             { path: '/patients/:id', element: <Suspense fallback={<div>Loading...</div>}><PatientDetailPage /></Suspense> },
             { path: '/analytics', element: <Suspense fallback={<div>Loading...</div>}><AnalyticsPage /></Suspense> },
         ]

@@ -2,6 +2,7 @@
 import { useEffect } from 'react'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './router'
+import ErrorBoundary from '../shared/components/ErrorBoundary';
 import { useAuthStore } from './store/authStore'
 import { onAuthStateChanged } from '../modules/auth/services/firebaseAuth'
 import { registerServiceWorker, requestNotificationPermission } from '../modules/notifications/services/notificationService'
@@ -26,7 +27,11 @@ const App = () => {
         return unsubscribe
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-    return <RouterProvider router={router} />
+    return (
+      <ErrorBoundary>
+        <RouterProvider router={router} />
+      </ErrorBoundary>
+    );
 }
 
 export default App
