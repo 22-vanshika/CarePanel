@@ -1,0 +1,12 @@
+// Configures strict TypeScript compiler rules and path aliases.
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
