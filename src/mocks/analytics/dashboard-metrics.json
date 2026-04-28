@@ -1,65 +1,74 @@
-// Mocks the API response payload for dashboard charts and KPIs.
 {
-    "totalPatients": 1250,
-    "activeAdmissions": 120,
-    "pendingAppointments": 24,
-    "totalRevenue": 45000,
-    "dailyRevenue": 2450,
-    "appointmentRate": 85,
-    "revenueByMonth": [
-        {
-            "name": "Jan",
-            "value": 45000
-        },
-        {
-            "name": "Feb",
-            "value": 55000
-        },
-        {
-            "name": "Mar",
-            "value": 65000
-        },
-        {
-            "name": "Apr",
-            "value": 75000
-        },
-        {
-            "name": "May",
-            "value": 85000
-        },
-        {
-            "name": "Jun",
-            "value": 95000
-        }
+  "data": {
+    "totalPatients": 1248,
+    "activePatients": 412,
+    "dischargedToday": 18,
+    "metrics": [
+      {
+        "id": "m1",
+        "label": "Total Revenue",
+        "value": "$45,231",
+        "unit": "USD",
+        "trend": 12.5,
+        "trendDirection": "UP"
+      },
+      {
+        "id": "m2",
+        "label": "Avg Length of Stay",
+        "value": 4.2,
+        "unit": "days",
+        "trend": -1.5,
+        "trendDirection": "DOWN"
+      },
+      {
+        "id": "m3",
+        "label": "Bed Occupancy",
+        "value": 85,
+        "unit": "%",
+        "trend": 0,
+        "trendDirection": "FLAT"
+      },
+      {
+        "id": "m4",
+        "label": "Readmission Rate",
+        "value": 3.8,
+        "unit": "%",
+        "trend": -0.5,
+        "trendDirection": "DOWN"
+      },
+      {
+        "id": "m5",
+        "label": "Patient Satisfaction",
+        "value": 4.8,
+        "unit": "/ 5",
+        "trend": 2.1,
+        "trendDirection": "UP"
+      }
     ],
-    "revenueByDay": [
-        {
-            "name": "Mon",
-            "value": 5000
-        },
-        {
-            "name": "Tue",
-            "value": 7000
-        },
-        {
-            "name": "Wed",
-            "value": 3000
-        },
-        {
-            "name": "Thu",
-            "value": 9000
-        },
-        {
-            "name": "Fri",
-            "value": 6000
-        },
-        {
-            "name": "Sat",
-            "value": 8000
-        },
-        {
-            "name": "Sun",
-            "value": 4000
-        }
-    ]
+    "charts": {
+      "patientsByStatus": [
+        { "label": "ACTIVE", "value": 412 },
+        { "label": "CRITICAL", "value": 45 },
+        { "label": "OBSERVATION", "value": 115 },
+        { "label": "DISCHARGED", "value": 676 }
+      ],
+      "admissionsOverTime": [
+        { "label": "Mon", "value": 24 },
+        { "label": "Tue", "value": 28 },
+        { "label": "Wed", "value": 22 },
+        { "label": "Thu", "value": 31 },
+        { "label": "Fri", "value": 35 },
+        { "label": "Sat", "value": 18 },
+        { "label": "Sun", "value": 15 }
+      ],
+      "diagnosisBreakdown": [
+        { "label": "Cardiology", "value": 320 },
+        { "label": "Orthopedics", "value": 210 },
+        { "label": "Neurology", "value": 180 },
+        { "label": "Oncology", "value": 150 },
+        { "label": "Pediatrics", "value": 140 }
+      ]
+    }
+  },
+  "success": true
 }

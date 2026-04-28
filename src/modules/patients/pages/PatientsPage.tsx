@@ -5,12 +5,14 @@ import { usePatientStore, selectViewMode } from '../store/patientStore';
 import { ViewToggle } from '../components/ViewToggle';
 import { PatientCard } from '../components/PatientCard';
 import { PatientListItem } from '../components/PatientListItem';
+import { useNotifications } from '../../notifications/hooks/useNotifications';
 
 const PatientsPage: React.FC = () => {
   const navigate = useNavigate();
   const { patients, isLoading, error } = usePatients();
   const viewMode = usePatientStore(selectViewMode);
   const setViewMode = usePatientStore(state => state.setViewMode);
+  const { triggerTestNotification } = useNotifications();
 
   const handlePatientClick = (id: string) => {
     navigate(`/patients/${id}`);
@@ -31,7 +33,7 @@ const PatientsPage: React.FC = () => {
         <p className="text-slate-500 mb-6">{error}</p>
         <button 
           onClick={handleRetry}
-          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+          className="btn-primary"
         >
           Try Again
         </button>
@@ -47,6 +49,9 @@ const PatientsPage: React.FC = () => {
           <p className="text-sm text-slate-500 mt-1">Manage and view patient directory</p>
         </div>
         <div className="flex items-center space-x-4">
+          <button onClick={triggerTestNotification} className="btn-secondary">
+            Test Notification
+          </button>
           <ViewToggle viewMode={viewMode} onToggle={setViewMode} />
         </div>
       </div>

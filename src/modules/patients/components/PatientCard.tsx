@@ -1,23 +1,17 @@
 import React from 'react';
-import type { Patient, PatientStatus } from '../types';
+import type { Patient } from '../types';
+import { statusBadgeClass } from '../utils/statusStyles';
 
 interface PatientCardProps {
   patient: Patient;
   onClick: (id: string) => void;
 }
 
-const statusColors: Record<PatientStatus, string> = {
-  ACTIVE: 'bg-green-100 text-green-800',
-  CRITICAL: 'bg-red-100 text-red-800',
-  OBSERVATION: 'bg-amber-100 text-amber-800',
-  DISCHARGED: 'bg-slate-100 text-slate-800',
-};
-
 export const PatientCard: React.FC<PatientCardProps> = ({ patient, onClick }) => {
   return (
     <div
       onClick={() => onClick(patient.id)}
-      className="bg-white border border-slate-200 rounded-xl p-6 cursor-pointer hover:shadow-md transition-shadow flex flex-col"
+      className="card cursor-pointer hover:shadow-lg transition-shadow flex flex-col"
     >
       <div className="flex justify-between items-start mb-4">
         <div>
@@ -26,7 +20,7 @@ export const PatientCard: React.FC<PatientCardProps> = ({ patient, onClick }) =>
           </h3>
           <p className="text-sm text-slate-500">Age: {patient.age} • {patient.gender}</p>
         </div>
-        <span className={`px-2.5 py-1 text-xs font-semibold rounded-full ${statusColors[patient.status]}`}>
+        <span className={`px-2.5 py-1 text-xs font-semibold rounded-full ${statusBadgeClass(patient.status)}`}>
           {patient.status}
         </span>
       </div>

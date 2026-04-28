@@ -1,9 +1,12 @@
+import React from 'react';
 import { Outlet } from 'react-router-dom';
 
-export default function AuthLayout() {
+const AuthLayout: React.FC = () => {
     return (
-        <div>
+        <div className="min-h-screen bg-[var(--color-bg)] flex flex-col justify-center items-center py-12 px-4 sm:px-6 lg:px-8">
             <Outlet />
         </div>
     );
-}
+};
+
+export default AuthLayout;

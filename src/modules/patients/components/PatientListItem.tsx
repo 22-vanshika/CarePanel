@@ -1,23 +1,17 @@
 import React from 'react';
-import type { Patient, PatientStatus } from '../types';
+import type { Patient } from '../types';
+import { statusBadgeClass } from '../utils/statusStyles';
 
 interface PatientListItemProps {
   patient: Patient;
   onClick: (id: string) => void;
 }
 
-const statusColors: Record<PatientStatus, string> = {
-  ACTIVE: 'bg-green-100 text-green-800',
-  CRITICAL: 'bg-red-100 text-red-800',
-  OBSERVATION: 'bg-amber-100 text-amber-800',
-  DISCHARGED: 'bg-slate-100 text-slate-800',
-};
-
 export const PatientListItem: React.FC<PatientListItemProps> = ({ patient, onClick }) => {
   return (
     <div
       onClick={() => onClick(patient.id)}
-      className="bg-white border border-slate-200 rounded-xl p-4 cursor-pointer hover:bg-slate-50 transition-colors flex items-center justify-between"
+      className="card p-4 cursor-pointer hover:bg-slate-50 transition-colors flex items-center justify-between"
     >
       <div className="flex items-center space-x-6 flex-1">
         <div className="w-48">
@@ -39,7 +33,7 @@ export const PatientListItem: React.FC<PatientListItemProps> = ({ patient, onCli
       </div>
 
       <div className="ml-4 flex items-center">
-        <span className={`px-2.5 py-1 text-xs font-semibold rounded-full ${statusColors[patient.status]}`}>
+        <span className={`px-2.5 py-1 text-xs font-semibold rounded-full ${statusBadgeClass(patient.status)}`}>
           {patient.status}
         </span>
       </div>

@@ -44,5 +44,11 @@ export interface AnalyticsSummary {
     dischargedToday: number;
     /** Collection of specific KPI metrics for display */
     metrics: MetricCard[];
+    /** Charts data */
+    charts: {
+        patientsByStatus: ChartDataPoint[];
+        admissionsOverTime: ChartDataPoint[];
+        diagnosisBreakdown: ChartDataPoint[];
+    };
 }
 // interface was chosen as the summary object may grow to include more complex breakdowns as the app evolves.

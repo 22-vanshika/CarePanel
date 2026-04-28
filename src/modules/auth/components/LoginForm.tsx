@@ -37,7 +37,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error }) => 
           onChange={(e) => setEmail(e.target.value)}
           required
           disabled={isLoading}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 bg-white disabled:bg-gray-50 disabled:text-gray-500"
+          className="input-field disabled:bg-gray-50 disabled:text-gray-500"
           placeholder="doctor@clinic.com"
         />
       </div>
@@ -53,7 +53,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error }) => 
           onChange={(e) => setPassword(e.target.value)}
           required
           disabled={isLoading}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all duration-200 bg-white disabled:bg-gray-50 disabled:text-gray-500"
+          className="input-field disabled:bg-gray-50 disabled:text-gray-500"
           placeholder="••••••••"
         />
       </div>
@@ -61,7 +61,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error }) => 
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full bg-blue-600 text-white font-medium py-2 px-4 rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-200"
+        className="w-full btn-primary disabled:opacity-70 disabled:cursor-not-allowed"
       >
         {isLoading ? 'Signing in...' : 'Sign In'}
       </button>

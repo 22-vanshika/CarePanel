@@ -4,6 +4,7 @@ import { RouterProvider } from 'react-router-dom'
 import { router } from './router'
 import { useAuthStore } from './store/authStore'
 import { onAuthStateChanged } from '../modules/auth/services/firebaseAuth'
+import { registerServiceWorker, requestNotificationPermission } from '../modules/notifications/services/notificationService'
 
 const App = () => {
     const setUser = useAuthStore(state => state.setUser)
@@ -20,6 +21,8 @@ const App = () => {
             }
             setLoading(false)
         })
+        registerServiceWorker()
+        requestNotificationPermission()
         return unsubscribe
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
