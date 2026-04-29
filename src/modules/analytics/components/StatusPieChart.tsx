@@ -17,7 +17,7 @@ const COLORS: Record<string, string> = {
 export const StatusPieChart: React.FC<StatusPieChartProps> = ({ data, title }) => {
     return (
         <div className="card p-6 w-full h-[400px] flex flex-col">
-            <h3 className="text-lg font-semibold text-slate-800 mb-6">{title}</h3>
+            <h3 className="text-lg font-semibold text-[var(--color-text)] mb-6">{title}</h3>
             <div className="flex-1 min-h-0">
                 <ResponsiveContainer width="100%" height="100%">
                     <PieChart>

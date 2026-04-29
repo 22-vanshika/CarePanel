@@ -7,9 +7,9 @@ interface PrivateRouteProps {
 }
 
 const FullScreenSpinner: React.FC = () => (
-  <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
-    <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-    <p className="mt-4 text-gray-600 font-medium animate-pulse">Loading...</p>
+  <div className="min-h-screen flex flex-col items-center justify-center bg-[var(--color-bg)]">
+    <div className="w-12 h-12 border-4 border-[var(--color-primary)] border-t-transparent rounded-full animate-spin"></div>
+    <p className="mt-4 text-[var(--color-text-muted)] font-medium animate-pulse">Loading...</p>
   </div>
 );
 

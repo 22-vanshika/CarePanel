@@ -86,17 +86,12 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error }) => 
               )}
             </button>
           </div>
-          <div className="flex justify-end mt-1">
-            <a href="#" className="text-[11px] pt-sans-regular text-[#2979d4] hover:underline opacity-80">
-              Forgot password?
-            </a>
-          </div>
         </div>
 
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-[#2979d4] hover:bg-[#2368b8] text-[var(--color-surface)] pt-sans-bold py-2.5 mt-6 rounded-[10px] border border-white/15 transition-all active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm"
+          className="w-full bg-[var(--color-primary)] text-[var(--color-surface)] pt-sans-bold py-2.5 mt-6 rounded-[10px] border border-white/15 transition-all hover:brightness-110 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm"
         >
           {isLoading ? (
             <>
@@ -117,30 +112,30 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error }) => 
           <div className="w-full border-t border-white/10"></div>
         </div>
         <div className="relative flex justify-center">
-          <span className="px-2 bg-transparent text-[10px] pt-sans-bold text-[var(--color-text-muted)] uppercase tracking-widest bg-[#151515]">
+          <span className="px-2 text-[10px] pt-sans-bold text-[var(--color-text-muted)] uppercase tracking-widest bg-[var(--color-surface)]/10 backdrop-blur-sm rounded-md">
             Try Demo
           </span>
         </div>
       </div>
-      
-      <div className="mt-6 bg-[#2979d4]/10 border border-[#2979d4]/20 rounded-lg p-4">
+
+      <div className="mt-6 bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 rounded-lg p-4">
         <div className="flex items-center justify-between mb-3">
-          <span className="text-[11px] pt-sans-bold text-[#2979d4]/80 uppercase tracking-wider">Demo Credentials</span>
+          <span className="text-[11px] pt-sans-bold text-[var(--color-primary)]/80 uppercase tracking-wider">Demo Credentials</span>
           <button
             type="button"
             onClick={handleAutofillDemo}
-            className="text-[11px] text-[#2979d4] pt-sans-bold hover:underline"
+            className="text-[11px] text-[var(--color-primary)] pt-sans-bold hover:underline"
           >
             Autofill
           </button>
         </div>
-        <div className="text-xs space-y-2 font-mono text-blue-100/90">
+        <div className="text-xs space-y-2 font-mono text-[var(--color-text)]/90">
           <div className="flex justify-between items-center">
-            <span className="font-sans text-blue-100/50">Email</span>
+            <span className="font-sans text-[var(--color-text-muted)]">Email</span>
             <span>doctor@clinic.com</span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="font-sans text-blue-100/50">Password</span>
+            <span className="font-sans text-[var(--color-text-muted)]">Password</span>
             <span>password123</span>
           </div>
         </div>

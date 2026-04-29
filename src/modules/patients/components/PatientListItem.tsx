@@ -11,24 +11,24 @@ export const PatientListItem: React.FC<PatientListItemProps> = ({ patient, onCli
   return (
     <div
       onClick={() => onClick(patient.id)}
-      className="card p-4 cursor-pointer hover:bg-slate-50 transition-colors flex items-center justify-between"
+      className="card p-4 cursor-pointer hover:bg-[var(--color-surface)] transition-colors flex items-center justify-between"
     >
       <div className="flex items-center space-x-6 flex-1">
         <div className="w-48">
-          <h3 className="text-base font-semibold text-slate-900">
+          <h3 className="text-base font-semibold text-[var(--color-text)]">
             {patient.firstName} {patient.lastName}
           </h3>
-          <p className="text-sm text-slate-500">Age: {patient.age} • {patient.gender}</p>
+          <p className="text-sm text-[var(--color-text-muted)]">Age: {patient.age} • {patient.gender}</p>
         </div>
         
         <div className="flex-1 hidden md:block">
-          <p className="text-sm font-medium text-slate-900">{patient.diagnosis}</p>
-          <p className="text-sm text-slate-500">Diagnosis</p>
+          <p className="text-sm font-medium text-[var(--color-text)]">{patient.diagnosis}</p>
+          <p className="text-sm text-[var(--color-text-muted)]">Diagnosis</p>
         </div>
 
         <div className="w-48 hidden lg:block">
-          <p className="text-sm text-slate-900">{patient.assignedDoctor}</p>
-          <p className="text-sm text-slate-500">Assigned Doctor</p>
+          <p className="text-sm text-[var(--color-text)]">{patient.assignedDoctor}</p>
+          <p className="text-sm text-[var(--color-text-muted)]">Assigned Doctor</p>
         </div>
       </div>
 

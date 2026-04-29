@@ -13,7 +13,7 @@ export const AnalyticsPage: React.FC = () => {
     if (error) {
         return (
             <div className="p-8">
-                <div className="bg-red-50 text-red-600 p-4 rounded-xl border border-red-100">
+                <div className="bg-[var(--color-error)]/10 text-[var(--color-error)] p-4 rounded-xl border border-[var(--color-error)]/20">
                     <h2 className="font-semibold mb-1">Error Loading Analytics</h2>
                     <p className="text-sm">{error}</p>
                 </div>
@@ -25,12 +25,12 @@ export const AnalyticsPage: React.FC = () => {
         return (
             <div className="p-8 space-y-6">
                 <div className="flex items-center justify-between">
-                    <h1 className="text-2xl font-bold text-slate-800">Detailed Analytics</h1>
+                    <h1 className="text-2xl font-bold text-[var(--color-text)]">Detailed Analytics</h1>
                 </div>
-                <div className="bg-slate-50 border border-slate-100 h-[400px] rounded-xl animate-pulse"></div>
+                <div className="bg-[var(--color-surface)] border border-[var(--color-secondary)]/10 h-[400px] rounded-xl animate-pulse"></div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
-                    <div className="bg-slate-50 border border-slate-100 h-[400px] rounded-xl animate-pulse"></div>
-                    <div className="bg-slate-50 border border-slate-100 h-[400px] rounded-xl animate-pulse"></div>
+                    <div className="bg-[var(--color-surface)] border border-[var(--color-secondary)]/10 h-[400px] rounded-xl animate-pulse"></div>
+                    <div className="bg-[var(--color-surface)] border border-[var(--color-secondary)]/10 h-[400px] rounded-xl animate-pulse"></div>
                 </div>
             </div>
         );
@@ -44,8 +44,8 @@ export const AnalyticsPage: React.FC = () => {
         <div className="p-8 space-y-6">
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-2xl font-bold text-slate-800">Detailed Analytics</h1>
-                    <p className="text-slate-500">Showing data for: <span className="font-medium text-slate-700">{dateDisplay}</span></p>
+                    <h1 className="text-2xl font-bold text-[var(--color-text)]">Detailed Analytics</h1>
+                    <p className="text-[var(--color-text-muted)]">Showing data for: <span className="font-medium text-[var(--color-text)]">{dateDisplay}</span></p>
                 </div>
             </div>
 

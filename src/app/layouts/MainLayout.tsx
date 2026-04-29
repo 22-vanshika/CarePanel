@@ -64,9 +64,9 @@ const MainLayout: React.FC = () => {
 
             {/* Sidebar */}
             <aside
-                className={`fixed inset-y-0 left-0 z-30 w-64 bg-[var(--color-surface)] border-r border-slate-200 transform transition-transform duration-300 ease-in-out md:relative ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:-translate-x-full'}`}
+                className={`fixed inset-y-0 left-0 z-30 w-64 bg-[var(--color-surface)] border-r border-[var(--color-secondary)]/20 transform transition-transform duration-300 ease-in-out md:relative ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:-translate-x-full'}`}
             >
-                <div className="flex items-center justify-center h-16 border-b border-slate-200">
+                <div className="flex items-center justify-center h-16 border-b border-[var(--color-secondary)]/20">
                     <span className="text-xl font-bold text-[var(--color-text)]">Healthcare SaaS</span>
                 </div>
                 <nav className="p-4 space-y-1">
@@ -78,7 +78,7 @@ const MainLayout: React.FC = () => {
                                 to={link.path}
                                 className={`flex items-center px-4 py-3 rounded-lg font-medium transition-colors ${isActive
                                     ? 'bg-[var(--color-primary)]/10 text-[var(--color-primary)]'
-                                    : 'text-[var(--color-text-muted)] hover:bg-slate-50 hover:text-[var(--color-text)]'
+                                    : 'text-[var(--color-text-muted)] hover:bg-[var(--color-surface)] hover:text-[var(--color-text)]'
                                     }`}
                             >
                                 {link.icon}
@@ -92,11 +92,11 @@ const MainLayout: React.FC = () => {
             {/* Main Content */}
             <div className="flex flex-col flex-1 min-w-0">
                 {/* Header */}
-                <header className="flex items-center justify-between h-16 px-4 sm:px-6 bg-[var(--color-surface)] border-b border-slate-200 z-10">
+                <header className="flex items-center justify-between h-16 px-4 sm:px-6 bg-[var(--color-surface)] border-b border-[var(--color-secondary)]/20 z-10">
                     <div className="flex items-center">
                         <button
                             onClick={toggleSidebar}
-                            className="p-2 mr-4 text-[var(--color-text-muted)] rounded-lg hover:bg-slate-100 focus:outline-none"
+                            className="p-2 mr-4 text-[var(--color-text-muted)] rounded-lg hover:bg-[var(--color-secondary)]/10 focus:outline-none"
                             aria-label="Toggle sidebar"
                         >
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,7 +113,7 @@ const MainLayout: React.FC = () => {
                         </span>
                         <button
                             onClick={handleLogout}
-                            className="text-sm font-medium text-[var(--color-error)] hover:bg-red-50 px-3 py-2 rounded-lg transition-colors"
+                            className="text-sm font-medium text-[var(--color-error)] hover:bg-[var(--color-error)]/10 px-3 py-2 rounded-lg transition-colors"
                         >
                             Logout
                         </button>

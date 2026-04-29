@@ -18,6 +18,8 @@
   /* Destructive actions, errors */
   --color-warning: #f59e0b;
   /* Warnings, alerts */
+  --color-border: #e2e8f0;
+  /* Standard borders */
 
   /* Spacing Scale */
   --space-1: 0.25rem;
@@ -58,4 +60,5 @@
   --color-success: #34d399;
   --color-error: #f87171;
   --color-warning: #fbbf24;
+  --color-border: #334155;
 }

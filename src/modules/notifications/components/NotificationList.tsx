@@ -20,11 +20,11 @@ const getRelativeTime = (isoString: string): string => {
 
 const getTypeColor = (type: NotificationType) => {
     switch (type) {
-        case 'SUCCESS': return 'border-green-500';
+        case 'SUCCESS': return 'border-[var(--color-success)]';
         case 'WARNING': return 'border-amber-500';
-        case 'ERROR': return 'border-red-500';
+        case 'ERROR': return 'border-[var(--color-error)]';
         case 'INFO':
-        default: return 'border-blue-500';
+        default: return 'border-[var(--color-primary)]';
     }
 };
 
@@ -46,7 +46,7 @@ export const NotificationList: React.FC<NotificationListProps> = ({
     return (
         <div className="flex flex-col w-full max-h-96 overflow-y-auto bg-[var(--color-surface)]">
             {!allRead && (
-                <div className="p-2 flex justify-end border-b border-slate-200">
+                <div className="p-2 flex justify-end border-b border-[var(--color-secondary)]/20">
                     <button
                         onClick={onMarkAllAsRead}
                         className="text-xs font-medium text-[var(--color-primary)] hover:underline"
@@ -60,7 +60,7 @@ export const NotificationList: React.FC<NotificationListProps> = ({
                     <li
                         key={notification.id}
                         onClick={() => !notification.read && onMarkAsRead(notification.id)}
-                        className={`p-3 border-b border-slate-100 last:border-b-0 cursor-pointer hover:bg-slate-50 transition-colors ${!notification.read ? `border-l-4 ${getTypeColor(notification.type)}` : 'pl-4'}`}
+                        className={`p-3 border-b border-[var(--color-secondary)]/10 last:border-b-0 cursor-pointer hover:bg-[var(--color-surface)] transition-colors ${!notification.read ? `border-l-4 ${getTypeColor(notification.type)}` : 'pl-4'}`}
                     >
                         <div className="flex justify-between items-start mb-1">
                             <div className="flex items-center gap-2">
@@ -75,7 +75,7 @@ export const NotificationList: React.FC<NotificationListProps> = ({
                                 )}
                             </div>
                             <div className="flex items-center gap-3">
-                                <span className="text-xs text-slate-400 whitespace-nowrap">
+                                <span className="text-xs text-[var(--color-text-muted)] whitespace-nowrap">
                                     {getRelativeTime(notification.timestamp)}
                                 </span>
                                 {!notification.read && (
@@ -84,7 +84,7 @@ export const NotificationList: React.FC<NotificationListProps> = ({
                                             e.stopPropagation();
                                             onMarkAsRead(notification.id);
                                         }}
-                                        className="text-slate-400 hover:text-[var(--color-primary)] transition-colors p-1 -m-1 rounded-full hover:bg-slate-100"
+                                        className="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors p-1 -m-1 rounded-full hover:bg-[var(--color-secondary)]/10"
                                         title="Mark as read"
                                         aria-label="Mark as read"
                                     >
@@ -95,7 +95,7 @@ export const NotificationList: React.FC<NotificationListProps> = ({
                                 )}
                             </div>
                         </div>
-                        <p className={`text-sm ${!notification.read ? 'text-[var(--color-text-muted)]' : 'text-slate-400'}`}>
+                        <p className={`text-sm ${!notification.read ? 'text-[var(--color-text-muted)]' : 'text-[var(--color-text-muted)]'}`}>
                             {notification.body}
                         </p>
                     </li>

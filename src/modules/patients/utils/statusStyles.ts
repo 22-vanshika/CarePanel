@@ -11,6 +11,6 @@ export const statusBadgeClass = (status: PatientStatus): string => {
     case 'DISCHARGED':
       return 'bg-[var(--color-secondary)]/10 text-[var(--color-secondary)]';
     default:
-      return 'bg-gray-100 text-gray-800';
+      return 'bg-gray-100 text-[var(--color-text)]';
   }
 };
