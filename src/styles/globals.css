@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "./tokens.css";
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* Base Resets and Variables Application */
 @layer base {
@@ -7,6 +9,7 @@
     background-color: var(--color-bg);
     color: var(--color-text);
     font-size: var(--text-base);
+    font-family: "PT Sans", sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
@@ -32,4 +35,25 @@
   .input-field {
     @apply w-full bg-[var(--color-surface)] border border-[var(--color-secondary)] rounded-[var(--radius-md)] px-[var(--space-3)] py-[var(--space-2)] text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 transition-shadow;
   }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+  .animate-shake {
+    animation: shake 0.2s ease-in-out 0s 2;
+  }
+}
+
+@layer utilities {
+  .kaushan-script-regular {
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .pt-sans-regular { font-family: "PT Sans", sans-serif; font-weight: 400; font-style: normal; }
+  .pt-sans-bold { font-family: "PT Sans", sans-serif; font-weight: 700; font-style: normal; }
+  .pt-sans-regular-italic { font-family: "PT Sans", sans-serif; font-weight: 400; font-style: italic; }
+  .pt-sans-bold-italic { font-family: "PT Sans", sans-serif; font-weight: 700; font-style: italic; }
 }

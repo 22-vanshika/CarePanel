@@ -1,14 +1,23 @@
 :root {
   /* Colors - Light Theme (Default) */
-  --color-primary: #2563eb;    /* Core brand color */
-  --color-secondary: #64748b;  /* Supporting elements */
-  --color-bg: #f8fafc;         /* Main app background */
-  --color-surface: #ffffff;    /* Cards, modals, panels */
-  --color-text: #0f172a;       /* Primary text */
-  --color-text-muted: #475569; /* Secondary/helper text */
-  --color-success: #10b981;    /* Success states */
-  --color-error: #ef4444;      /* Destructive actions, errors */
-  --color-warning: #f59e0b;    /* Warnings, alerts */
+  --color-primary: #2563eb;
+  /* Core brand color */
+  --color-secondary: #64748b;
+  /* Supporting elements */
+  --color-bg: #f8fafc;
+  /* Main app background */
+  --color-surface: #ffffff;
+  /* Cards, modals, panels */
+  --color-text: #0f172a;
+  /* Primary text */
+  --color-text-muted: #475569;
+  /* Secondary/helper text */
+  --color-success: #10b981;
+  /* Success states */
+  --color-error: #ef4444;
+  /* Destructive actions, errors */
+  --color-warning: #f59e0b;
+  /* Warnings, alerts */
 
   /* Spacing Scale */
   --space-1: 0.25rem;
