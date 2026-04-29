@@ -1,54 +1,216 @@
 import React from 'react';
-import { useAnalyticsData } from '../hooks/useAnalyticsData';
-import { MetricCard } from '../components/MetricCard';
-import { AdmissionsChart } from '../components/AdmissionsChart';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { useAuthStore } from '../../../app/store/authStore';
+import { Card } from '../../../shared/components/Card/Card';
+import { Button } from '../../../shared/components/Button/Button';
+import { StatCard } from '../../../shared/components/StatCard/StatCard';
+import { PatientRow } from '../../../shared/components/PatientRow/PatientRow';
+import { AppointmentRow } from '../../../shared/components/AppointmentRow/AppointmentRow';
+import { AlertRow } from '../../../shared/components/AlertRow/AlertRow';
+import PageSkeleton from '../../../shared/components/PageSkeleton';
+
+import { usePatientStats } from '../hooks/usePatientStats';
+import { useCriticalAlerts } from '../hooks/useCriticalAlerts';
+import { useTodayAppointments } from '../hooks/useTodayAppointments';
+import { useRecentAdmissions } from '../hooks/useRecentAdmissions';
 
 export const DashboardPage: React.FC = () => {
-    const { summary, isLoading, error } = useAnalyticsData();
+    const user = useAuthStore(state => state.user);
+    const doctorName = user?.displayName ? user.displayName.split(' ')[0] : 'Smith';
 
-    if (error) {
-        return (
-            <div className="p-8">
-                <div className="bg-[var(--color-error)]/10 text-[var(--color-error)] p-4 rounded-xl border border-[var(--color-error)]/20">
-                    <h2 className="font-semibold mb-1">Error Loading Dashboard</h2>
-                    <p className="text-sm">{error}</p>
-                </div>
-            </div>
-        );
+    const statsQuery = usePatientStats();
+    const alertsQuery = useCriticalAlerts();
+    const appointmentsQuery = useTodayAppointments();
+    const admissionsQuery = useRecentAdmissions();
+
+    const isLoading = statsQuery.isLoading || alertsQuery.isLoading || appointmentsQuery.isLoading || admissionsQuery.isLoading;
+
+    if (isLoading) {
+        return <PageSkeleton />;
     }
 
-    if (isLoading || !summary) {
-        return (
-            <div className="p-8 space-y-6">
-                <div>
-                    <h1 className="text-2xl font-bold text-[var(--color-text)]">Dashboard Overview</h1>
-                    <p className="text-[var(--color-text-muted)]">Loading your metrics...</p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {[1, 2, 3, 4].map((i) => (
-                        <div key={i} className="bg-[var(--color-surface)] border border-[var(--color-secondary)]/10 h-28 rounded-xl animate-pulse"></div>
-                    ))}
-                </div>
-                <div className="bg-[var(--color-surface)] border border-[var(--color-secondary)]/10 h-[400px] rounded-xl animate-pulse mt-6"></div>
-            </div>
-        );
-    }
+    const stats = statsQuery.data;
+    const alerts = alertsQuery.data || [];
+    const appointments = appointmentsQuery.data || [];
+    const admissions = admissionsQuery.data || [];
+
+    if (!stats) return null;
 
     return (
-        <div className="p-8 space-y-6">
-            <div>
-                <h1 className="text-2xl font-bold text-[var(--color-text)]">Dashboard Overview</h1>
-                <p className="text-[var(--color-text-muted)]">Summary of key performance indicators.</p>
+        <div className="p-[var(--space-8)] space-y-[var(--space-6)] max-w-7xl mx-auto font-sans">
+            {/* GREETING HEADER */}
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-[var(--space-4)]">
+                <div>
+                    <h1 className="text-[var(--text-2xl)] font-bold text-[var(--color-text)] mb-1 font-McLaren">
+                        Good morning, <span className="text-[var(--color-primary)]">Dr. {doctorName}</span>
+                    </h1>
+                    <p className="text-[var(--color-text-muted)] text-[var(--text-sm)]">
+                        {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })} — Here's what's happening today
+                    </p>
+                </div>
+                <Button variant="primary" className="shadow-[var(--shadow-lg)] shadow-[var(--color-primary)]/20">
+                    <svg className="w-5 h-5 mr-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
+                    New Patient
+                </Button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {summary.metrics.slice(0, 4).map((metric) => (
-                    <MetricCard key={metric.id} metric={metric} />
-                ))}
+            {/* 5 STAT CARDS */}
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-[var(--space-4)]">
+                <StatCard 
+                    label="Total Patients" 
+                    value={stats.totalPatients.toLocaleString()} 
+                    delta={{ value: stats.totalPatientsDelta.value, trend: stats.totalPatientsDelta.trend }} 
+                />
+                
+                <Card padding="md" elevation="md" className="bg-gradient-to-br from-[var(--color-error)]/10 to-[var(--color-surface)] border-[var(--color-error)]/30 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-16 h-16 bg-[var(--color-error)]/10 rounded-bl-full -mr-4 -mt-4 blur-xl"></div>
+                    <h3 className="text-[var(--color-error)]/80 text-[0.75rem] font-medium uppercase tracking-wider mb-2">Critical Alerts</h3>
+                    <div className="flex items-end justify-between relative z-10">
+                        <span className="text-[var(--text-2xl)] font-bold text-[var(--color-error)]">{alerts.length}</span>
+                        <span className="text-[var(--color-error)] text-[var(--text-sm)] font-medium flex items-center bg-[var(--color-error)]/10 px-[var(--space-2)] py-[2px] rounded-full animate-pulse">
+                            Urgent
+                        </span>
+                    </div>
+                </Card>
+
+                <StatCard 
+                    label="Admissions Today" 
+                    value={stats.admissionsToday} 
+                    delta={{ value: stats.admissionsTodayDelta.value, trend: stats.admissionsTodayDelta.trend }} 
+                />
+                
+                <StatCard label="Bed Occupancy" value={`${stats.bedOccupancy}%`}>
+                    <div className="w-16 h-1.5 bg-[var(--color-bg)] rounded-full overflow-hidden absolute bottom-5 right-5">
+                        <div className="h-full bg-[var(--color-warning)] transition-all duration-500" style={{ width: `${stats.bedOccupancy}%` }}></div>
+                    </div>
+                </StatCard>
+                
+                <StatCard label="Appointments Today" value={stats.appointmentsToday}>
+                    <div className="absolute bottom-5 right-5 text-[0.75rem] text-[var(--color-text-muted)] font-medium">
+                        {stats.appointmentsRemaining} remaining
+                    </div>
+                </StatCard>
             </div>
 
-            <div className="mt-8">
-                <AdmissionsChart data={summary.charts.admissionsOverTime} title="Admissions Over Time (Last 7 Days)" />
+            {/* MAIN CONTENT 2-COLUMN */}
+            <div className="flex flex-col xl:flex-row gap-[var(--space-6)]">
+                {/* LEFT COLUMN */}
+                <div className="flex-1 space-y-[var(--space-6)] min-w-0">
+                    {/* Patient Flow Chart */}
+                    <Card padding="md" elevation="md" className="flex flex-col h-[380px]">
+                        <div className="flex items-center justify-between mb-[var(--space-6)]">
+                            <h2 className="text-[var(--text-lg)] font-semibold text-[var(--color-text)]">Patient Flow</h2>
+                            <select className="bg-[var(--color-bg)] border border-[var(--color-border)] text-[0.75rem] text-[var(--color-text-muted)] rounded-[var(--radius-md)] px-[var(--space-2)] py-[var(--space-1)] outline-none">
+                                <option>This Week</option>
+                                <option>Last Week</option>
+                            </select>
+                        </div>
+                        <div className="flex-1 min-h-0">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <BarChart data={stats.patientFlow} margin={{ top: 5, right: 0, left: -20, bottom: 5 }} barGap={6}>
+                                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--color-border)" />
+                                    <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: 'var(--color-text-muted)', fontSize: 12 }} dy={10} />
+                                    <YAxis axisLine={false} tickLine={false} tick={{ fill: 'var(--color-text-muted)', fontSize: 12 }} />
+                                    <Tooltip 
+                                        cursor={{ fill: 'var(--color-bg)' }}
+                                        contentStyle={{ backgroundColor: 'var(--color-surface)', borderColor: 'var(--color-border)', borderRadius: 'var(--radius-md)', color: 'var(--color-text)' }}
+                                        itemStyle={{ color: 'var(--color-text)' }}
+                                    />
+                                    <Legend iconType="circle" wrapperStyle={{ fontSize: '12px', paddingTop: '20px' }} />
+                                    <Bar dataKey="admissions" name="Admissions" fill="var(--color-primary)" radius={[4, 4, 0, 0]} barSize={12} />
+                                    <Bar dataKey="discharges" name="Discharges" fill="var(--color-success)" radius={[4, 4, 0, 0]} barSize={12} />
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </div>
+                    </Card>
+
+                    {/* Recent Admissions Table */}
+                    <Card padding="none" elevation="md" className="overflow-hidden flex flex-col">
+                        <div className="p-[var(--space-5)] border-b border-[var(--color-border)] flex items-center justify-between">
+                            <h2 className="text-[var(--text-lg)] font-semibold text-[var(--color-text)]">Recent Admissions</h2>
+                            <button className="text-[var(--color-primary)] text-[var(--text-sm)] hover:opacity-80 transition-opacity">View All</button>
+                        </div>
+                        <div className="overflow-x-auto">
+                            <table className="w-full text-left border-collapse">
+                                <thead>
+                                    <tr className="bg-[var(--color-bg)]/50 text-[var(--color-text-muted)] text-[0.75rem] uppercase tracking-wider border-b border-[var(--color-border)]">
+                                        <th className="px-[var(--space-5)] py-[var(--space-3)] font-medium">Patient</th>
+                                        <th className="px-[var(--space-5)] py-[var(--space-3)] font-medium">Department</th>
+                                        <th className="px-[var(--space-5)] py-[var(--space-3)] font-medium">Time</th>
+                                        <th className="px-[var(--space-5)] py-[var(--space-3)] font-medium text-right">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {admissions.map((row) => (
+                                        <PatientRow 
+                                            key={row.id}
+                                            name={row.name}
+                                            initials={row.initials}
+                                            department={row.department}
+                                            timeAgo={row.timeAgo}
+                                            status={row.status}
+                                        />
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </Card>
+                </div>
+
+                {/* RIGHT SIDEBAR */}
+                <div className="xl:w-[320px] shrink-0 space-y-[var(--space-6)]">
+                    {/* Critical Alerts */}
+                    <Card padding="md" elevation="md">
+                        <div className="flex items-center justify-between mb-[var(--space-4)]">
+                            <h2 className="text-[var(--text-lg)] font-semibold text-[var(--color-text)]">Critical Alerts</h2>
+                            <span className="bg-[var(--color-error)]/10 text-[var(--color-error)] text-[0.75rem] px-[var(--space-2)] py-[2px] rounded-full border border-[var(--color-error)]/20">
+                                {alerts.length} New
+                            </span>
+                        </div>
+                        <div className="space-y-[var(--space-3)]">
+                            {alerts.map(alert => (
+                                <AlertRow 
+                                    key={alert.id}
+                                    patientName={alert.patientName}
+                                    ward={alert.ward}
+                                    readingLabel={alert.readingLabel}
+                                    readingValue={alert.readingValue}
+                                />
+                            ))}
+                        </div>
+                    </Card>
+
+                    {/* Today's Appointments */}
+                    <Card padding="md" elevation="md">
+                        <div className="flex items-center justify-between mb-[var(--space-4)]">
+                            <h2 className="text-[var(--text-lg)] font-semibold text-[var(--color-text)]">Upcoming</h2>
+                            <button className="text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" /></svg></button>
+                        </div>
+                        <div className="space-y-[var(--space-4)]">
+                            {appointments.map(apt => (
+                                <AppointmentRow 
+                                    key={apt.id}
+                                    time={apt.time}
+                                    patientName={apt.patientName}
+                                    type={apt.type}
+                                    accentColor={apt.accentColor}
+                                />
+                            ))}
+                        </div>
+                    </Card>
+
+                    {/* Lab Results Pending */}
+                    <div className="bg-[var(--color-error)]/5 border border-[var(--color-error)]/20 rounded-[var(--radius-lg)] p-[var(--space-5)] shadow-[var(--shadow-md)] relative overflow-hidden">
+                        <div className="absolute top-0 right-0 p-[var(--space-4)] opacity-10">
+                            <svg className="w-16 h-16 text-[var(--color-error)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                        </div>
+                        <h2 className="text-[var(--text-lg)] font-semibold text-[var(--color-text)] mb-2 relative z-10">Lab Results Pending</h2>
+                        <p className="text-[var(--text-sm)] text-[var(--color-text-muted)] mb-[var(--space-4)] relative z-10">3 critical blood panels require your immediate attention.</p>
+                        <Button variant="danger" className="w-full relative z-10 bg-[var(--color-error)]/10 text-[var(--color-error)] border border-[var(--color-error)]/30 hover:bg-[var(--color-error)]/20">
+                            Review Now
+                        </Button>
+                    </div>
+                </div>
             </div>
         </div>
     );

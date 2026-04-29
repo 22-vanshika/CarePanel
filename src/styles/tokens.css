@@ -53,12 +53,12 @@
   /* Colors - Dark Theme Override */
   --color-primary: #3b82f6;
   --color-secondary: #94a3b8;
-  --color-bg: #0f172a;
-  --color-surface: #1e293b;
+  --color-bg: #090d18;
+  --color-surface: #0d1220;
   --color-text: #f8fafc;
-  --color-text-muted: #cbd5e1;
-  --color-success: #34d399;
-  --color-error: #f87171;
-  --color-warning: #fbbf24;
-  --color-border: #334155;
+  --color-text-muted: #9ca3af;
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+  --color-border: rgba(255, 255, 255, 0.07);
 }

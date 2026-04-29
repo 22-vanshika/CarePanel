@@ -26,9 +26,14 @@
     font-family: "PT Sans", sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: "McLaren", sans-serif;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", sans-serif;
   }
 }
 
@@ -41,7 +46,7 @@
   .btn-primary {
     @apply bg-[var(--color-primary)] text-[var(--color-surface)] px-[var(--space-4)] py-[var(--space-2)] rounded-[var(--radius-md)] font-medium transition-opacity hover:opacity-90;
   }
-  
+
   .btn-secondary {
     @apply bg-[transparent] text-[var(--color-primary)] border border-[var(--color-primary)] px-[var(--space-4)] py-[var(--space-2)] rounded-[var(--radius-md)] font-medium transition-colors hover:bg-[var(--color-bg)];
   }
@@ -55,18 +60,39 @@
   }
 
   @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
+
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+
+    25% {
+      transform: translateX(-5px);
+    }
+
+    75% {
+      transform: translateX(5px);
+    }
   }
+
   .animate-shake {
     animation: shake 0.2s ease-in-out 0s 2;
   }
 
   @keyframes pulse-ring {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.15); opacity: 0.8; }
+
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    50% {
+      transform: scale(1.15);
+      opacity: 0.8;
+    }
   }
+
   .animate-pulse-ring {
     animation: pulse-ring 1.5s infinite ease-in-out;
   }
@@ -76,8 +102,28 @@
   .playfair-display {
     font-family: "Playfair Display", serif;
   }
-  .pt-sans-regular { font-family: "PT Sans", sans-serif; font-weight: 400; font-style: normal; }
-  .pt-sans-bold { font-family: "PT Sans", sans-serif; font-weight: 700; font-style: normal; }
-  .pt-sans-regular-italic { font-family: "PT Sans", sans-serif; font-weight: 400; font-style: italic; }
-  .pt-sans-bold-italic { font-family: "PT Sans", sans-serif; font-weight: 700; font-style: italic; }
+
+  .pt-sans-regular {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .pt-sans-bold {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .pt-sans-regular-italic {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .pt-sans-bold-italic {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
 }
