@@ -1,4 +1,5 @@
 [
-  { "id": "1", "patientName": "Robert K.", "ward": "Ward A • Bed 12", "readingLabel": "HR", "readingValue": "135 bpm" },
-  { "id": "2", "patientName": "Alice M.", "ward": "ICU • Bed 04", "readingLabel": "SpO2", "readingValue": "88%" }
+  { "id": "1", "patientName": "Rohan M.", "ward": "Ward A • Bed 12", "readingLabel": "HR", "readingValue": "135 bpm" },
+  { "id": "2", "patientName": "Ananya I.", "ward": "ICU • Bed 04", "readingLabel": "SpO2", "readingValue": "88%" },
+  { "id": "3", "patientName": "Amit S.", "ward": "Ward C • Bed 08", "readingLabel": "BP", "readingValue": "160/110" }
 ]

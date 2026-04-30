@@ -44,9 +44,8 @@ const PatientsPage: React.FC = () => {
         <div className="p-[var(--space-6)] max-w-7xl mx-auto">
             <div className="flex justify-between items-center mb-[var(--space-6)]">
                 <div>
-                    <h1 className="text-[var(--text-3xl)] font-bold text-[var(--color-text)]">Patients</h1>
-                    <p className="text-[var(--text-sm)] text-[var(--color-text-muted)] mt-[var(--space-1)]">Manage and view patient directory</p>
-                    {/* <p className="text-[var(--text-xs)] text-[var(--color-text-muted)] mt-[var(--space-1)]">Click 'Demo Notification' to test the Service Worker integration</p> */}
+                    <h1 className="page-title">Patients</h1>
+                    <p className="page-subtitle">Manage and view patient directory</p>
                 </div>
                 <div className="flex items-center space-x-[var(--space-4)]">
                     <Button type="button" onClick={triggerTestNotification} variant="secondary" size="sm">

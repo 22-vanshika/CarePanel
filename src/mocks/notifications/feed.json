@@ -3,7 +3,7 @@
     {
       "id": "n-001",
       "title": "Critical Alert",
-      "body": "Patient O2 saturation dropped to 88%",
+      "body": "Patient O2 saturation dropped to 88% in Ward A",
       "type": "ERROR",
       "timestamp": "2026-04-28T09:15:00Z",
       "read": false
@@ -11,7 +11,7 @@
     {
       "id": "n-002", 
       "title": "Lab Results Ready",
-      "body": "Blood panel results available for review",
+      "body": "Blood panel results available for Arjun Sharma",
       "type": "INFO",
       "timestamp": "2026-04-28T08:30:00Z",
       "read": false
@@ -19,7 +19,7 @@
     {
       "id": "n-003",
       "title": "Discharge Complete",
-      "body": "Patient Liam O'Connor successfully discharged",
+      "body": "Patient Vikram Malhotra successfully discharged",
       "type": "SUCCESS",
       "timestamp": "2026-04-28T07:45:00Z",
       "read": true

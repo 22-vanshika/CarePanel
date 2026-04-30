@@ -36,8 +36,13 @@ export const StatusPieChart: React.FC<StatusPieChartProps> = ({ data, title }) =
                             ))}
                         </Pie>
                         <Tooltip 
-                            contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                            itemStyle={{ color: '#0f172a', fontWeight: 600 }}
+                            contentStyle={{ 
+                                backgroundColor: 'var(--color-surface)', 
+                                borderColor: 'var(--color-border)', 
+                                borderRadius: 'var(--radius-md)', 
+                                color: 'var(--color-text)' 
+                            }}
+                            itemStyle={{ color: 'var(--color-text)' }}
                         />
                         <Legend verticalAlign="bottom" height={36} iconType="circle" />
                     </PieChart>

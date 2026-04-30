@@ -65,13 +65,13 @@ const MainLayout: React.FC = () => {
     return (
         <Vortex
             backgroundColor="#0b0b0d"
-            rangeY={600}
-            particleCount={100}
+            rangeY={200}
+            particleCount={70}
             baseHue={140}
             containerClassName="h-screen w-screen overflow-hidden"
             className="flex flex-col h-full w-full"
         >
-            <div className="flex h-full w-full bg-transparent text-[var(--color-text)] overflow-hidden font-sans">
+            <div className="flex h-full w-full bg-transparent text-[var(--color-text)] overflow-hidden">
                 {/* Narrow Icon Rail */}
                 <div className="hidden sm:flex w-[52px] h-full bg-[var(--color-surface)] border-[var(--color-border)] flex-col items-center py-[var(--space-6)] z-20 shrink-0">
                     <div className="flex-1 flex flex-col items-center gap-[var(--space-8)] mt-12">

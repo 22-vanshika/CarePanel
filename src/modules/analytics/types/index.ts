@@ -33,6 +33,27 @@ export type ChartDataPoint = {
 // type was chosen because data points are simple, consistent structures used in arrays for mapping.
 
 /**
+ * Entry for the departmental operational ledger
+ */
+export interface LedgerEntry {
+    department: string;
+    staff: number;
+    waitTime: string;
+    efficiency: number;
+    status: 'OPTIMAL' | 'DELAYED' | 'CRITICAL';
+}
+
+/**
+ * Intelligent insight recommendation
+ */
+export interface Insight {
+    title: string;
+    description: string;
+    type: 'ALERT' | 'OPTIMIZATION' | 'SUCCESS';
+    icon?: string;
+}
+
+/**
  * Aggregated data summary for the main dashboard view
  */
 export interface AnalyticsSummary {
@@ -50,5 +71,9 @@ export interface AnalyticsSummary {
         admissionsOverTime: ChartDataPoint[];
         diagnosisBreakdown: ChartDataPoint[];
     };
+    /** Departmental performance ledger */
+    operationalLedger: LedgerEntry[];
+    /** AI-driven insights */
+    insights: Insight[];
 }
 // interface was chosen as the summary object may grow to include more complex breakdowns as the app evolves.

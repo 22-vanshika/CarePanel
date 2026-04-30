@@ -1,5 +1,6 @@
 [
-  { "id": "1", "time": "09:30 AM", "patientName": "Thomas G.", "type": "General Checkup", "accentColor": "blue" },
-  { "id": "2", "time": "10:15 AM", "patientName": "Maria S.", "type": "Cardiology Consult", "accentColor": "purple" },
-  { "id": "3", "time": "11:00 AM", "patientName": "William P.", "type": "Post-Op Review", "accentColor": "green" }
+  { "id": "1", "time": "09:30 AM", "patientName": "Aarav S.", "type": "General Checkup", "accentColor": "blue" },
+  { "id": "2", "time": "10:15 AM", "patientName": "Priya K.", "type": "Cardiology Consult", "accentColor": "purple" },
+  { "id": "3", "time": "11:00 AM", "patientName": "Vikram M.", "type": "Post-Op Review", "accentColor": "green" },
+  { "id": "4", "time": "12:30 PM", "patientName": "Sneha R.", "type": "Neurology Follow-up", "accentColor": "orange" }
 ]

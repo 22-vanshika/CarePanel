@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import type { AppNotification } from '../types';
+import mockData from '../../../mocks/notifications/feed.json';
 
 export interface NotificationStore {
     notifications: AppNotification[];
@@ -13,7 +14,10 @@ export interface NotificationStore {
 export const useNotificationStore = create<NotificationStore>()(
     devtools(
         (set) => ({
-            notifications: [],
+            notifications: (mockData.data as any[]).map(n => ({
+                ...n,
+                type: n.type as 'INFO' | 'SUCCESS' | 'WARNING' | 'ERROR'
+            })),
             setNotifications: (notifications) => set({ notifications }),
             markAsRead: (id) => set((state) => ({
                 notifications: state.notifications.map((n) =>

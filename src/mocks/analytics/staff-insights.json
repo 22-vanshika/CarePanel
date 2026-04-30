@@ -1,0 +1,23 @@
+{
+    "staffOnCall": [
+        { "id": "1", "name": "Dr. Suresh Raina", "role": "Sr. Cardiologist", "status": "Available", "img": "SR" },
+        { "id": "2", "name": "Dr. Ananya Iyer", "role": "Neurologist", "status": "In Surgery", "statusColor": "text-[var(--color-warning)]", "img": "AI" },
+        { "id": "3", "name": "Dr. Rahul Dravid", "role": "General Surgeon", "status": "Available", "img": "RD" }
+    ],
+    "activeInsights": [
+        {
+            "id": "1",
+            "title": "Oncology Bottleneck",
+            "description": "Wait times trending +22% in Ward 4. Suggest staff reallocation.",
+            "type": "ALERT",
+            "actionLabel": "Take Action"
+        },
+        {
+            "id": "2",
+            "title": "Efficiency Peak",
+            "description": "Cardiology throughput at 98% today. Maintenance scheduled for 10 PM.",
+            "type": "INFO",
+            "actionLabel": "View Schedule"
+        }
+    ]
+}

@@ -56,14 +56,14 @@ const LoginPage: React.FC = () => {
       {/* LOADING OVERLAY */}
       {showLoaderDOM && (
         <div
-          className={`fixed top-0 left-0 w-screen h-screen z-[9999] bg-[var(--color-bg)] flex flex-col justify-center items-center transition-opacity duration-[800ms] ease-out ${isSplineLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+          className={`fixed top-0 left-0 w-screen h-screen z-[9999] bg-[#0b0b0d] flex flex-col justify-center items-center transition-opacity duration-[800ms] ease-out ${isSplineLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
           role="status"
         >
-          <div className="flex flex-col items-center">
-            <h2 className="playfair-display text-[44px] tracking-[-0.5px] text-center">
-              <span className="font-normal text-white">Care</span><span className="font-bold text-[var(--color-primary)]">Panel</span>
+          <div className="flex flex-col items-center bg-[#0b0b0d]">
+            <h2 className="brand-title text-center">
+              <span className="font-light text-white">Care</span><span className="font-semibold text-[var(--color-primary)]">Panel</span>
             </h2>
-            <p className="mt-2 text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-muted)] pt-sans-bold opacity-80">
+            <p className="mt-3 text-[11px] uppercase tracking-[0.25em] text-[var(--color-text-muted)] font-sans font-semibold opacity-70">
               Clinical Team Platform
             </p>
 
@@ -84,10 +84,10 @@ const LoginPage: React.FC = () => {
         aria-hidden={!isSplineLoaded}
       >
         <div className="sm:mx-auto sm:w-full sm:max-w-md flex flex-col items-center">
-          <h2 className="mt-2 playfair-display text-[44px] tracking-[-0.5px] text-center">
-            <span className="font-normal text-white">Care</span><span className="font-bold text-[var(--color-primary)]">Panel</span>
+          <h2 className="brand-title text-center">
+            <span className="font-light text-white">Care</span><span className="font-semibold text-[var(--color-primary)]">Panel</span>
           </h2>
-          <p className="mt-4 text-center text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] pt-sans-bold">
+          <p className="mt-4 text-center text-[11px] uppercase tracking-[0.25em] text-[var(--color-text-muted)] font-sans font-semibold opacity-70">
             Clinical team platform
           </p>
         </div>

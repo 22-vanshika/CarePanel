@@ -1,19 +1,19 @@
 {
   "data": {
     "id": "p-1001",
-    "firstName": "Elena",
-    "lastName": "Rostova",
+    "firstName": "Aarav",
+    "lastName": "Sharma",
     "age": 45,
-    "gender": "Female",
+    "gender": "Male",
     "bloodType": "A+",
     "diagnosis": "Type 2 Diabetes",
     "status": "ACTIVE",
     "lastVisit": "2026-04-20T10:30:00Z",
-    "assignedDoctor": "Dr. Sarah Chen",
+    "assignedDoctor": "Dr. Rajesh Khanna",
     "contactInfo": {
-      "phone": "555-0101",
-      "email": "elena.r@example.com",
-      "address": "123 Maple St, Springfield"
+      "phone": "98765-43210",
+      "email": "aarav.sharma@example.com",
+      "address": "B-42, Sector 62, Noida"
     }
   },
   "success": true

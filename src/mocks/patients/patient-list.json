@@ -2,206 +2,206 @@
   "data": [
     {
       "id": "p-1001",
-      "firstName": "Elena",
-      "lastName": "Rostova",
+      "firstName": "Aarav",
+      "lastName": "Sharma",
       "age": 45,
-      "gender": "Female",
+      "gender": "Male",
       "bloodType": "A+",
       "diagnosis": "Type 2 Diabetes",
       "status": "ACTIVE",
       "lastVisit": "2026-04-20T10:30:00Z",
-      "assignedDoctor": "Dr. Sarah Chen",
+      "assignedDoctor": "Dr. Rajesh Khanna",
       "contactInfo": {
-        "phone": "555-0101",
-        "email": "elena.r@example.com",
-        "address": "123 Maple St, Springfield"
+        "phone": "98765-43210",
+        "email": "aarav.sharma@example.com",
+        "address": "B-42, Sector 62, Noida"
       }
     },
     {
       "id": "p-1002",
-      "firstName": "Marcus",
-      "lastName": "Johnson",
-      "age": 62,
-      "gender": "Male",
-      "bloodType": "O-",
-      "diagnosis": "Hypertension",
-      "status": "OBSERVATION",
-      "lastVisit": "2026-04-26T14:15:00Z",
-      "assignedDoctor": "Dr. Emily Davis",
-      "contactInfo": {
-        "phone": "555-0102",
-        "email": "marcus.j@example.com",
-        "address": "456 Oak Ave, Riverville"
-      }
-    },
-    {
-      "id": "p-1003",
-      "firstName": "Sophia",
-      "lastName": "Martinez",
+      "firstName": "Ananya",
+      "lastName": "Iyer",
       "age": 28,
       "gender": "Female",
       "bloodType": "B+",
       "diagnosis": "Asthma Exacerbation",
       "status": "CRITICAL",
       "lastVisit": "2026-04-28T09:00:00Z",
-      "assignedDoctor": "Dr. James Wilson",
+      "assignedDoctor": "Dr. Sunita Williams",
       "contactInfo": {
-        "phone": "555-0103",
-        "email": "sophia.m@example.com",
-        "address": "789 Pine Ln, Lakeside"
+        "phone": "98123-45678",
+        "email": "ananya.iyer@example.com",
+        "address": "Flat 402, Sai Residency, Indiranagar, Bengaluru"
+      }
+    },
+    {
+      "id": "p-1003",
+      "firstName": "Vihaan",
+      "lastName": "Malhotra",
+      "age": 62,
+      "gender": "Male",
+      "bloodType": "O-",
+      "diagnosis": "Hypertension",
+      "status": "OBSERVATION",
+      "lastVisit": "2026-04-26T14:15:00Z",
+      "assignedDoctor": "Dr. Amit Shah",
+      "contactInfo": {
+        "phone": "99887-76655",
+        "email": "vihaan.m@example.com",
+        "address": "12, Marine Drive, Mumbai"
       }
     },
     {
       "id": "p-1004",
-      "firstName": "Liam",
-      "lastName": "O'Connor",
+      "firstName": "Diya",
+      "lastName": "Kapoor",
       "age": 35,
-      "gender": "Male",
+      "gender": "Female",
       "bloodType": "AB+",
       "diagnosis": "Post-Op Appendectomy",
       "status": "DISCHARGED",
       "lastVisit": "2026-04-15T11:45:00Z",
-      "assignedDoctor": "Dr. Michael Brown",
+      "assignedDoctor": "Dr. Suresh Raina",
       "contactInfo": {
-        "phone": "555-0104",
-        "email": "liam.o@example.com",
-        "address": "321 Cedar Rd, Mountain View"
+        "phone": "97654-32109",
+        "email": "diya.k@example.com",
+        "address": "Villa 7, Green Meadows, Gurgaon"
       }
     },
     {
       "id": "p-1005",
-      "firstName": "Aisha",
-      "lastName": "Patel",
+      "firstName": "Arjun",
+      "lastName": "Verma",
       "age": 50,
-      "gender": "Female",
+      "gender": "Male",
       "bloodType": "A-",
       "diagnosis": "Rheumatoid Arthritis",
       "status": "ACTIVE",
       "lastVisit": "2026-04-22T08:20:00Z",
-      "assignedDoctor": "Dr. Sarah Chen",
+      "assignedDoctor": "Dr. Rajesh Khanna",
       "contactInfo": {
-        "phone": "555-0105",
-        "email": "aisha.p@example.com",
-        "address": "654 Birch Ct, Sunnyside"
+        "phone": "91234-56789",
+        "email": "arjun.v@example.com",
+        "address": "H.No 124, Civil Lines, Jaipur"
       }
     },
     {
       "id": "p-1006",
-      "firstName": "David",
-      "lastName": "Kim",
+      "firstName": "Saanvi",
+      "lastName": "Reddy",
       "age": 71,
-      "gender": "Male",
+      "gender": "Female",
       "bloodType": "O+",
       "diagnosis": "Congestive Heart Failure",
       "status": "CRITICAL",
       "lastVisit": "2026-04-27T16:30:00Z",
-      "assignedDoctor": "Dr. James Wilson",
+      "assignedDoctor": "Dr. Sunita Williams",
       "contactInfo": {
-        "phone": "555-0106",
-        "email": "david.k@example.com",
-        "address": "987 Walnut Dr, Hilltop"
+        "phone": "95555-44444",
+        "email": "saanvi.r@example.com",
+        "address": "Banjara Hills, Road No. 12, Hyderabad"
       }
     },
     {
       "id": "p-1007",
-      "firstName": "Emma",
-      "lastName": "Garcia",
+      "firstName": "Ishaan",
+      "lastName": "Deshmukh",
       "age": 41,
-      "gender": "Female",
+      "gender": "Male",
       "bloodType": "B-",
       "diagnosis": "Migraine Protocol",
       "status": "OBSERVATION",
       "lastVisit": "2026-04-28T10:10:00Z",
-      "assignedDoctor": "Dr. Emily Davis",
+      "assignedDoctor": "Dr. Amit Shah",
       "contactInfo": {
-        "phone": "555-0107",
-        "email": "emma.g@example.com",
-        "address": "159 Spruce Way, Brookside"
+        "phone": "96666-55555",
+        "email": "ishaan.d@example.com",
+        "address": "Pimple Saudagar, Pune"
       }
     },
     {
       "id": "p-1008",
-      "firstName": "Noah",
-      "lastName": "Smith",
+      "firstName": "Kiara",
+      "lastName": "Advani",
       "age": 19,
-      "gender": "Male",
+      "gender": "Female",
       "bloodType": "A+",
       "diagnosis": "Concussion",
       "status": "DISCHARGED",
       "lastVisit": "2026-04-25T13:00:00Z",
-      "assignedDoctor": "Dr. Michael Brown",
+      "assignedDoctor": "Dr. Suresh Raina",
       "contactInfo": {
-        "phone": "555-0108",
-        "email": "noah.s@example.com",
-        "address": "753 Cherry Blvd, Westfield"
+        "phone": "97777-88888",
+        "email": "kiara.a@example.com",
+        "address": "7th Cross, Malleshwaram, Bengaluru"
       }
     },
     {
       "id": "p-1009",
-      "firstName": "Olivia",
-      "lastName": "Taylor",
+      "firstName": "Kabir",
+      "lastName": "Singh",
       "age": 55,
-      "gender": "Female",
+      "gender": "Male",
       "bloodType": "O+",
       "diagnosis": "Hypothyroidism",
       "status": "ACTIVE",
       "lastVisit": "2026-04-18T09:30:00Z",
-      "assignedDoctor": "Dr. Sarah Chen",
+      "assignedDoctor": "Dr. Rajesh Khanna",
       "contactInfo": {
-        "phone": "555-0109",
-        "email": "olivia.t@example.com",
-        "address": "852 Ash Pl, Northfield"
+        "phone": "94444-33333",
+        "email": "kabir.s@example.com",
+        "address": "Pocket A, Sarita Vihar, Delhi"
       }
     },
     {
       "id": "p-1010",
-      "firstName": "William",
-      "lastName": "Anderson",
+      "firstName": "Meera",
+      "lastName": "Nair",
       "age": 68,
-      "gender": "Male",
+      "gender": "Female",
       "bloodType": "AB-",
       "diagnosis": "Pneumonia",
       "status": "CRITICAL",
       "lastVisit": "2026-04-28T07:45:00Z",
-      "assignedDoctor": "Dr. James Wilson",
+      "assignedDoctor": "Dr. Sunita Williams",
       "contactInfo": {
-        "phone": "555-0110",
-        "email": "william.a@example.com",
-        "address": "951 Elm St, Southgate"
+        "phone": "93333-22222",
+        "email": "meera.n@example.com",
+        "address": "Panampilly Nagar, Kochi"
       }
     },
     {
       "id": "p-1011",
-      "firstName": "Isabella",
-      "lastName": "Thomas",
+      "firstName": "Rohan",
+      "lastName": "Mehta",
       "age": 31,
-      "gender": "Female",
+      "gender": "Male",
       "bloodType": "B+",
       "diagnosis": "Gastroenteritis",
       "status": "OBSERVATION",
       "lastVisit": "2026-04-27T20:20:00Z",
-      "assignedDoctor": "Dr. Emily Davis",
+      "assignedDoctor": "Dr. Amit Shah",
       "contactInfo": {
-        "phone": "555-0111",
-        "email": "isabella.t@example.com",
-        "address": "357 Poplar Dr, Eastside"
+        "phone": "92222-11111",
+        "email": "rohan.m@example.com",
+        "address": "Salt Lake, Sector V, Kolkata"
       }
     },
     {
       "id": "p-1012",
-      "firstName": "James",
-      "lastName": "Jackson",
+      "firstName": "Myra",
+      "lastName": "D'Souza",
       "age": 48,
-      "gender": "Male",
+      "gender": "Female",
       "bloodType": "A-",
       "diagnosis": "Kidney Stones",
       "status": "DISCHARGED",
       "lastVisit": "2026-04-24T15:50:00Z",
-      "assignedDoctor": "Dr. Michael Brown",
+      "assignedDoctor": "Dr. Suresh Raina",
       "contactInfo": {
-        "phone": "555-0112",
-        "email": "james.j@example.com",
-        "address": "246 Willow Ln, Westend"
+        "phone": "91111-00000",
+        "email": "myra.d@example.com",
+        "address": "Altinho, Panjim, Goa"
       }
     }
   ],

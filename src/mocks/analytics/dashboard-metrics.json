@@ -68,7 +68,27 @@
         { "label": "Oncology", "value": 150 },
         { "label": "Pediatrics", "value": 140 }
       ]
-    }
+    },
+    "operationalLedger": [
+      { "department": "Emergency Care Unit", "staff": 24, "waitTime": "28.5m", "efficiency": 82, "status": "OPTIMAL" },
+      { "department": "Pediatric Diagnostics", "staff": 12, "waitTime": "12.2m", "efficiency": 94, "status": "OPTIMAL" },
+      { "department": "Oncology Screening", "staff": 18, "waitTime": "45.0m", "efficiency": 65, "status": "DELAYED" },
+      { "department": "Surgical Recovery", "staff": 32, "waitTime": "18.4m", "efficiency": 88, "status": "OPTIMAL" },
+      { "department": "Cardiology Wing", "staff": 15, "waitTime": "15.0m", "efficiency": 91, "status": "OPTIMAL" },
+      { "department": "OPD - General", "staff": 40, "waitTime": "55.0m", "efficiency": 58, "status": "CRITICAL" }
+    ],
+    "insights": [
+      {
+        "title": "Bottleneck Detected",
+        "description": "Wait times in the Oncology OPD have increased by 22% since 08:00 AM. Suggest redirecting staff from Day Care.",
+        "type": "ALERT"
+      },
+      {
+        "title": "Discharge Optimization",
+        "description": "Average recovery time in Surgical Wing is down 1.2 days this month due to improved protocols.",
+        "type": "OPTIMIZATION"
+      }
+    ]
   },
   "success": true
 }

@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "name": "Sarah J.",
+    "name": "Siddharth J.",
     "initials": "S",
     "department": "Cardiology",
     "timeAgo": "10 mins ago",
@@ -9,7 +9,7 @@
   },
   {
     "id": "2",
-    "name": "Michael R.",
+    "name": "Meera R.",
     "initials": "M",
     "department": "Neurology",
     "timeAgo": "2 hours ago",
@@ -17,15 +17,15 @@
   },
   {
     "id": "3",
-    "name": "Emily C.",
-    "initials": "E",
+    "name": "Ishaan C.",
+    "initials": "I",
     "department": "Pediatrics",
     "timeAgo": "4 hours ago",
     "status": "OBSERVATION"
   },
   {
     "id": "4",
-    "name": "David L.",
+    "name": "Deepak L.",
     "initials": "D",
     "department": "Orthopedics",
     "timeAgo": "5 hours ago",
@@ -33,7 +33,7 @@
   },
   {
     "id": "5",
-    "name": "Jessica W.",
+    "name": "Jyoti W.",
     "initials": "J",
     "department": "Emergency",
     "timeAgo": "8 hours ago",

@@ -49,14 +49,14 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error }) => 
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
             required
             disabled={isLoading}
-            className="w-full bg-white/[0.05] border border-white/10 rounded-lg px-3 py-2.5 text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-primary)] focus:bg-white/[0.08] transition-colors placeholder:text-[var(--color-secondary)] pt-sans-regular"
+            className="w-full bg-white/[0.05] border border-white/10 rounded-lg px-3 py-2.5 text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-primary)] focus:bg-white/[0.08] transition-colors placeholder:text-white/20 pt-sans-regular"
             placeholder="name@company.com"
           />
         </div>
 
         <div className="space-y-2">
           <div className="flex justify-between items-center">
-            <label className="text-[10px] pt-sans-bold text-[var(--color-text-muted)] uppercase tracking-widest" htmlFor="password">
+            <label className="text-[10px] pt-sans-bold text-white/20 uppercase tracking-widest" htmlFor="password">
               Password
             </label>
           </div>
@@ -68,7 +68,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error }) => 
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
               required
               disabled={isLoading}
-              className="w-full bg-white/[0.05] border border-white/10 rounded-lg pl-3 pr-10 py-2.5 text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-primary)] focus:bg-white/[0.08] transition-colors placeholder:text-[var(--color-secondary)] pt-sans-regular"
+              className="w-full bg-white/[0.05] border border-white/10 rounded-lg pl-3 pr-10 py-2.5 text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-primary)] focus:bg-white/[0.08] transition-colors placeholder:text-white/20 pt-sans-regular"
               placeholder="••••••••"
             />
             <Button

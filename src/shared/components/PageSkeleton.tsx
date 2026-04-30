@@ -2,7 +2,7 @@
 
 const PageSkeleton = () => {
   return (
-    <div className="w-full p-6 space-y-6">
+    <div className="w-full p-6 md:p-8 space-y-8 max-w-7xl mx-auto">
       {/* Header skeleton */}
       <div className="space-y-2">
         <div className="h-8 w-1/3 bg-[var(--color-secondary)]/20 rounded animate-pulse" />
