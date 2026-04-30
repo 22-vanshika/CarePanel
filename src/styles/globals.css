@@ -1,10 +1,11 @@
 @import "tailwindcss";
 @import "./tokens.css";
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=McLaren&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @theme {
+  --font-sans: "Inter", "PT Sans", sans-serif;
+  
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
   --color-bg: var(--color-bg);
@@ -15,6 +16,33 @@
   --color-error: var(--color-error);
   --color-warning: var(--color-warning);
   --color-border: var(--color-border);
+  
+  --spacing-1: var(--space-1);
+  --spacing-2: var(--space-2);
+  --spacing-3: var(--space-3);
+  --spacing-4: var(--space-4);
+  --spacing-5: var(--space-5);
+  --spacing-6: var(--space-6);
+  --spacing-8: var(--space-8);
+  --spacing-10: var(--space-10);
+  --spacing-12: var(--space-12);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-full: var(--radius-full);
+
+  --text-xs: var(--text-xs);
+  --text-sm: var(--text-sm);
+  --text-base: var(--text-base);
+  --text-lg: var(--text-lg);
+  --text-xl: var(--text-xl);
+  --text-2xl: var(--text-2xl);
+  --text-3xl: var(--text-3xl);
+  
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
 }
 
 /* Base Resets and Variables Application */
@@ -23,32 +51,28 @@
     background-color: var(--color-bg);
     color: var(--color-text);
     font-size: var(--text-base);
-    font-family: "PT Sans", sans-serif;
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: "Playfair Display", sans-serif;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
 }
 
-/* 
- * SEMANTIC UTILITY LAYER 
- * Keep minimal! Only define patterns used repeatedly that don't fit well as a pure React component,
- * or fundamental building blocks.
- */
+/* SEMANTIC UTILITY LAYER */
 @layer components {
   .btn-primary {
-    @apply bg-[var(--color-primary)] text-[var(--color-surface)] px-[var(--space-4)] py-[var(--space-2)] rounded-[var(--radius-md)] font-medium transition-opacity hover:opacity-90;
+    @apply bg-[var(--color-primary)] text-white px-[var(--space-4)] py-[var(--space-2)] rounded-[var(--radius-md)] font-medium transition-opacity hover:opacity-90;
   }
 
   .btn-secondary {
-    @apply bg-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-primary)] px-[var(--space-4)] py-[var(--space-2)] rounded-[var(--radius-md)] font-medium transition-colors hover:bg-[var(--color-primary)]/[.08];
+    @apply bg-transparent text-[var(--color-text)] border border-[var(--color-border)] px-[var(--space-4)] py-[var(--space-2)] rounded-[var(--radius-md)] font-medium transition-colors hover:bg-[var(--color-surface)];
   }
 
   .card {
@@ -56,23 +80,13 @@
   }
 
   .input-field {
-    @apply w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-md)] px-[var(--space-4)] py-[var(--space-3)] text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20 transition-shadow;
+    @apply w-full bg-[var(--color-bg)] border border-[var(--color-border)] rounded-[var(--radius-md)] px-[var(--space-3)] py-[var(--space-2)] text-[var(--color-text)] text-[var(--text-sm)] focus:outline-none focus:border-[var(--color-primary)] transition-colors;
   }
 
   @keyframes shake {
-
-    0%,
-    100% {
-      transform: translateX(0);
-    }
-
-    25% {
-      transform: translateX(-5px);
-    }
-
-    75% {
-      transform: translateX(5px);
-    }
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
   }
 
   .animate-shake {
@@ -80,50 +94,11 @@
   }
 
   @keyframes pulse-ring {
-
-    0%,
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-
-    50% {
-      transform: scale(1.15);
-      opacity: 0.8;
-    }
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 0.8; }
   }
 
   .animate-pulse-ring {
     animation: pulse-ring 1.5s infinite ease-in-out;
-  }
-}
-
-@layer utilities {
-  .playfair-display {
-    font-family: "Playfair Display", serif;
-  }
-
-  .pt-sans-regular {
-    font-family: "PT Sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  .pt-sans-bold {
-    font-family: "PT Sans", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-
-  .pt-sans-regular-italic {
-    font-family: "PT Sans", sans-serif;
-    font-weight: 400;
-    font-style: italic;
-  }
-
-  .pt-sans-bold-italic {
-    font-family: "PT Sans", sans-serif;
-    font-weight: 700;
-    font-style: italic;
   }
 }

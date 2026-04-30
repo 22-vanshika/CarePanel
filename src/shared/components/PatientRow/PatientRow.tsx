@@ -22,18 +22,18 @@ export const PatientRow: React.FC<PatientRowProps> = ({ name, initials, departme
   };
 
   return (
-    <tr className="hover:bg-[var(--color-border)] transition-colors border-b border-[var(--color-border)] last:border-0 even:bg-[var(--color-surface)]/[0.04]">
+    <tr className="hover:bg-[var(--color-border)]/50 transition-colors border-b border-[var(--color-border)] last:border-0 even:bg-[var(--color-surface)]/[0.02]">
       <td className="px-[var(--space-5)] py-[var(--space-3)]">
         <div className="flex items-center gap-[var(--space-3)]">
-          <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px]  border ${getInitialsClasses(status)}`}>
+          <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] border ${getInitialsClasses(status)} font-medium`}>
             {initials}
           </div>
-          <span className="text-[var(--color-text)] text-sm">{name}</span>
+          <span className="text-[var(--color-text)] text-[var(--text-sm)] font-medium">{name}</span>
         </div>
       </td>
-      <td className="px-[var(--space-5)] py-[var(--space-3)] text-[var(--color-text-muted)] text-xs">{department}</td>
-      <td className="px-[var(--space-5)] py-[var(--space-3)] text-[var(--color-text-muted)] text-xs">{timeAgo}</td>
-      <td className="px-[var(--space-5)] py-[var(--space-3)] text-right text-xs">
+      <td className="px-[var(--space-5)] py-[var(--space-3)] text-[var(--color-text-muted)] text-[var(--text-xs)]">{department}</td>
+      <td className="px-[var(--space-5)] py-[var(--space-3)] text-[var(--color-text-muted)] text-[var(--text-xs)]">{timeAgo}</td>
+      <td className="px-[var(--space-5)] py-[var(--space-3)] text-right text-[var(--text-xs)]">
         <StatusBadge status={status} />
       </td>
     </tr>

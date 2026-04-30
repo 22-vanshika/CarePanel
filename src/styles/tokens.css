@@ -1,64 +1,47 @@
 :root {
-  /* Colors - Light Theme (Default) */
-  --color-primary: #2563eb;
-  /* Core brand color */
-  --color-secondary: #64748b;
-  /* Supporting elements */
-  --color-bg: #f8fafc;
-  /* Main app background */
-  --color-surface: #ffffff;
-  /* Cards, modals, panels */
-  --color-text: #0f172a;
-  /* Primary text */
-  --color-text-muted: #475569;
-  /* Secondary/helper text */
-  --color-success: #10b981;
-  /* Success states */
-  --color-error: #ef4444;
-  /* Destructive actions, errors */
-  --color-warning: #f59e0b;
-  /* Warnings, alerts */
-  --color-border: #e2e8f0;
-  /* Standard borders */
+  /* Colors - Dark Theme (Default SaaS) */
+  --color-bg: #09090b; /* Deep near-black background */
+  --color-surface: #121214; /* Slightly lighter panels */
+  --color-border: #27272a; /* Very subtle, low opacity border */
 
-  /* Spacing Scale */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
+  --color-primary: #0ea5e9; /* Blue/teal accent */
+  --color-secondary: #27272a; /* Secondary background/elements */
+  
+  --color-text: #f4f4f5; /* Primary text */
+  --color-text-muted: #a1a1aa; /* Secondary text */
+  
+  --color-success: #10b981; /* Green stable */
+  --color-error: #ef4444; /* Red critical */
+  --color-warning: #f59e0b; /* Yellow warning */
 
-  /* Border Radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 1rem;
+  /* Spacing Scale - Consistent SaaS spacing */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem; /* 48px */
+
+  /* Border Radius - Soft */
+  --radius-sm: 0.25rem; /* 4px */
+  --radius-md: 0.375rem; /* 6px */
+  --radius-lg: 0.5rem; /* 8px - Soft but not overly rounded */
   --radius-full: 9999px;
 
-  /* Font Sizes */
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
+  /* Typography Scale - Smaller, tighter */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.8125rem; /* 13px */
+  --text-base: 0.875rem; /* 14px */
+  --text-lg: 1rem; /* 16px */
+  --text-xl: 1.125rem; /* 18px */
+  --text-2xl: 1.25rem; /* 20px */
+  --text-3xl: 1.5rem; /* 24px */
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-}
-
-[data-theme="dark"] {
-  /* Colors - Dark Theme Override */
-  --color-primary: #3b82f6;
-  --color-secondary: #94a3b8;
-  --color-bg: #090d18;
-  --color-surface: #0d1220;
-  --color-text: #f8fafc;
-  --color-text-muted: #9ca3af;
-  --color-success: #34d399;
-  --color-error: #f87171;
-  --color-warning: #fbbf24;
-  --color-border: rgba(255, 255, 255, 0.07);
+  /* Shadows - Minimal/None for dark theme */
+  --shadow-sm: none;
+  --shadow-md: 0 1px 3px 0 rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 4px 6px -1px rgb(0 0 0 / 0.5);
 }

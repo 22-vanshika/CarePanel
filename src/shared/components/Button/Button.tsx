@@ -24,17 +24,17 @@ export const Button: React.FC<ButtonProps> = ({
 
   // Variant classes define specific token usages
   const variantClasses = {
-    primary: 'bg-[var(--color-primary)] text-[var(--color-surface)] hover:opacity-90',
-    secondary: 'bg-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-primary)] hover:bg-[var(--color-primary)]/[.08]',
-    danger: 'bg-[var(--color-error)] text-[var(--color-surface)] hover:opacity-90',
+    primary: 'bg-[var(--color-primary)] text-white hover:opacity-90',
+    secondary: 'bg-[var(--color-surface)] text-[var(--color-text)] border border-[var(--color-border)] hover:bg-[var(--color-border)]/[.5]',
+    danger: 'bg-[var(--color-error)] text-white hover:opacity-90',
     ghost: 'bg-transparent text-[var(--color-text)] hover:bg-[var(--color-border)]',
   };
 
   // Size classes map to spacing and typography tokens
   const sizeClasses = {
-    sm: 'px-[var(--space-2)] py-[var(--space-1)] text-[var(--text-sm)]',
-    md: 'px-[var(--space-4)] py-[var(--space-2)] text-[var(--text-base)]',
-    lg: 'px-[var(--space-6)] py-[var(--space-3)] text-[var(--text-lg)]',
+    sm: 'px-[var(--space-2)] py-[var(--space-1)] text-[var(--text-xs)]',
+    md: 'px-[var(--space-4)] py-[var(--space-2)] text-[var(--text-sm)]',
+    lg: 'px-[var(--space-6)] py-[var(--space-3)] text-[var(--text-base)]',
   };
 
   const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`.trim().replace(/\s+/g, ' ');
