@@ -6,7 +6,7 @@
 > 2. **Test Account Credentials**: For a quick walkthrough without creating your own account, use:
 >    - **Email**: `doctor@clinic.com`
 >    - **Password**: `Arvgyd@1234`
-> 3. **Manual Notification Trigger**: Since the application uses a mock data layer, use the **"🔔 Demo Notification"** button located on the **Patients Page** header to trigger a local push notification and verify the Service Worker lifecycle.
+> 3. **Manual Notification Trigger**: Since the application uses a mock data layer, use the **"🔔 Demo"** button located on the **Patients Page** header to trigger a local push notification and verify the Service Worker lifecycle.
 
 ---
 
@@ -16,8 +16,8 @@
 
 ## Live Demo
 
-- [Live Demo](your-vercel-url-here)
-- [Repository](your-github-url-here)
+- [Live Demo](https://care-panel-iota.vercel.app/)
+- [Repository](https://github.com/22-vanshika/CarePanel)
 
 ---
 
@@ -32,6 +32,7 @@
 | **React Router v6** | Client‑side routing & code‑splitting | Declarative routes, built‑in lazy loading, fine‑grained navigation guards |
 | **Tailwind CSS** (custom token system) | Styling & design tokens | Utility‑first, themable via CSS variables, no CSS‑in‑JS runtime cost |
 | **Service Worker** | Push notifications & offline cache | Enables background notifications and progressive web app capabilities |
+| **Spline + Framer Motion** | 3D models & animations | High‑end visual aesthetics, smooth transitions, and interactive 3D backgrounds |
 
 ---
 
@@ -45,16 +46,18 @@ src/
 │   │   ├─ authStore.ts
 │   │   └─ uiStore.ts
 │   └─ App.tsx
+├─ mocks/               # Mock data layer (Simulated API responses)
 ├─ modules/             # Micro‑frontend style feature modules
-│   ├─ auth/            # Login, token handling
+│   ├─ auth/            # Login, token handling, firebase services
 │   ├─ patients/        # Patient list, detail, CRUD hooks
 │   ├─ analytics/       # Dashboard, charts, metric cards
 │   └─ notifications/   # Service‑worker subscription, UI list
 ├─ shared/              # Cross‑module primitives
 │   ├─ components/      # UI primitives (Button, Card, PageSkeleton, …)
 │   ├─ hooks/           # Generic reusable hooks
-│   ├─ services/        # Firebase auth wrapper, API utilities
+│   ├─ services/        # API utilities & shared data services
 │   └─ utils/           # Helper functions (date utils, debounce, …)
+├─ styles/              # Design system tokens (CSS variables)
 └─ index.html
 ```
 
@@ -98,7 +101,7 @@ src/
 |--------|-----------|----------------|
 | **auth** | `pages/LoginPage.tsx`, `services/firebaseAuth.ts`, `store/authStore.ts` | User sign‑in, token refresh, session persistence |
 | **patients** | `pages/PatientsPage.tsx`, `components/PatientCard.tsx`, `hooks/usePatient.ts` | CRUD UI for patient records, list/grid view toggling |
-| **analytics** | `pages/DashboardPage.tsx`, `components/MetricCard.tsx`, `components/AdmissionsChart.tsx` | KPI displays, charts, trend visualisation |
+| **analytics** | `pages/DashboardPage.tsx`, `pages/AnalyticsPage.tsx`, `components/MetricCard.tsx` | KPI displays, charts, trend visualisation |
 | **notifications** | `services/notificationService.ts`, `components/NotificationList.tsx`, `store/notificationStore.ts` | Push‑notification subscription, UI badge, background handling |
 | **shared** | `components/*`, `hooks/*`, `utils/*`, `services/*` | Design system tokens, reusable UI primitives, generic utilities |
 
