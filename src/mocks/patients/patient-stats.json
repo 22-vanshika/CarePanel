@@ -1,0 +1,18 @@
+{
+  "totalPatients": 1284,
+  "totalPatientsDelta": { "trend": "up", "value": "12%" },
+  "admissionsToday": 24,
+  "admissionsTodayDelta": { "trend": "up", "value": "+4" },
+  "bedOccupancy": 86,
+  "appointmentsToday": 42,
+  "appointmentsRemaining": 6,
+  "patientFlow": [
+    { "day": "Mon", "admissions": 12, "discharges": 8 },
+    { "day": "Tue", "admissions": 15, "discharges": 10 },
+    { "day": "Wed", "admissions": 9, "discharges": 14 },
+    { "day": "Thu", "admissions": 14, "discharges": 12 },
+    { "day": "Fri", "admissions": 18, "discharges": 15 },
+    { "day": "Sat", "admissions": 8, "discharges": 18 },
+    { "day": "Sun", "admissions": 5, "discharges": 10 }
+  ]
+}

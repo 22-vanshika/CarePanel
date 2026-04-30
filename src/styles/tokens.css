@@ -57,8 +57,8 @@
   --color-surface: #0d1220;
   --color-text: #f8fafc;
   --color-text-muted: #9ca3af;
-  --color-success: #10b981;
-  --color-error: #ef4444;
-  --color-warning: #f59e0b;
+  --color-success: #34d399;
+  --color-error: #f87171;
+  --color-warning: #fbbf24;
   --color-border: rgba(255, 255, 255, 0.07);
 }

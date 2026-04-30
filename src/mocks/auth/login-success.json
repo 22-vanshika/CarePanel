@@ -1,1 +1,9 @@
-// Mocks the JWT and user profile response upon successful login.
+{
+  "data": {
+    "uid": "demo-user-001",
+    "email": "doctor@clinic.com",
+    "displayName": "Dr. Vanshika",
+    "role": "DOCTOR"
+  },
+  "success": true
+}

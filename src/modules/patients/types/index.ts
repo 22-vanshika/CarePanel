@@ -1,9 +1,7 @@
+import type { PatientStatus } from '../../../shared/types/common';
+
 // Exports strict TypeScript models for patient records.
-export type PatientStatus =
-    | 'ACTIVE'
-    | 'DISCHARGED'
-    | 'CRITICAL'
-    | 'OBSERVATION';
+export type { PatientStatus };
 
 /**
  * Supported UI layouts for the patient directory

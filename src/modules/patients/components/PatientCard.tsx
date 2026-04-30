@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import type { Patient } from '../types';
-import { statusBadgeClass } from '../utils/statusStyles';
+import { statusBadgeClass } from '../../../shared/utils/statusStyles';
 
 interface PatientCardProps {
   patient: Patient;

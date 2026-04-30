@@ -27,7 +27,7 @@ const PatientDetailPage: React.FC = () => {
           <p className="text-[var(--color-text-muted)] mb-8">{error || "The patient record could not be found."}</p>
           <button 
             onClick={handleBack}
-            className="px-6 py-2 bg-[var(--color-primary)] text-white rounded-md hover:bg-blue-700 transition-colors"
+            className="px-6 py-2 bg-[var(--color-primary)] text-white rounded-md hover:opacity-90 transition-colors"
           >
             Back to Patients
           </button>

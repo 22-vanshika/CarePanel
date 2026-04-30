@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { AsyncState } from '../../../shared/types/common';
-import { patientService, type RecentAdmission } from '../../patients/services/patientService';
+import { patientService, type RecentAdmission } from '../../../shared/services/patientService';
 
 export const useRecentAdmissions = () => {
     const [state, setState] = useState<AsyncState<RecentAdmission[]>>({

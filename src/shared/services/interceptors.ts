@@ -1,31 +1,16 @@
-import httpClient from './httpClient';
-import { useAuthStore } from '../../app/store/authStore';
+// Interceptor layer for the native fetch httpClient
+// Attaches Firebase auth token to outgoing requests
+// Handles 401 responses by clearing auth state
+
 import { getAuth } from 'firebase/auth';
+import { useAuthStore } from '../../app/store/authStore';
 
-export function setupInterceptors(): void {
-  httpClient.interceptors.request.use(
-    async (config) => {
-      const token = await getAuth().currentUser?.getIdToken();
-      if (token && config.headers) {
-        config.headers.Authorization = `Bearer ${token}`;
-      }
-      return config;
-    },
-    (error) => {
-      return Promise.reject(error);
-    }
-  );
+export const getAuthHeaders = async (): Promise<Record<string, string>> => {
+  const token = await getAuth().currentUser?.getIdToken();
+  return token ? { Authorization: `Bearer ${token}` } : {};
+};
 
-  httpClient.interceptors.response.use(
-    (response) => {
-      return response;
-    },
-    (error) => {
-      if (error.response && error.response.status === 401) {
-        useAuthStore.getState().clearUser();
-        window.location.href = '/login';
-      }
-      return Promise.reject(error);
-    }
-  );
-}
+export const handle401 = (): void => {
+  useAuthStore.getState().clearUser();
+  window.location.href = '/login';
+};

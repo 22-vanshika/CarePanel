@@ -45,3 +45,12 @@ export interface AsyncState<T> {
     error: string | null;
 }
 // interface was chosen to allow different modules to add state properties like 'isRefetching' or 'lastUpdated'.
+
+/**
+ * Clinical status of a patient
+ */
+export type PatientStatus =
+    | 'ACTIVE'
+    | 'CRITICAL'
+    | 'OBSERVATION'
+    | 'DISCHARGED';

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "name": "Sarah J.",
+    "initials": "S",
+    "department": "Cardiology",
+    "timeAgo": "10 mins ago",
+    "status": "CRITICAL"
+  },
+  {
+    "id": "2",
+    "name": "Michael R.",
+    "initials": "M",
+    "department": "Neurology",
+    "timeAgo": "2 hours ago",
+    "status": "ACTIVE"
+  },
+  {
+    "id": "3",
+    "name": "Emily C.",
+    "initials": "E",
+    "department": "Pediatrics",
+    "timeAgo": "4 hours ago",
+    "status": "OBSERVATION"
+  },
+  {
+    "id": "4",
+    "name": "David L.",
+    "initials": "D",
+    "department": "Orthopedics",
+    "timeAgo": "5 hours ago",
+    "status": "DISCHARGED"
+  },
+  {
+    "id": "5",
+    "name": "Jessica W.",
+    "initials": "J",
+    "department": "Emergency",
+    "timeAgo": "8 hours ago",
+    "status": "ACTIVE"
+  }
+]

@@ -9,10 +9,10 @@ export interface AlertRowProps {
 
 export const AlertRow: React.FC<AlertRowProps> = ({ patientName, ward, readingLabel, readingValue }) => {
   return (
-    <div className="bg-[var(--color-bg)] rounded-[var(--radius-md)] p-[var(--space-3)] border-l-2 border-l-[var(--color-error)] border-y border-r border-y-[var(--color-border)] border-r-[var(--color-border)]">
+    <div className="bg-[var(--color-error)]/[0.03] rounded-[var(--radius-md)] p-[var(--space-3)] border border-[var(--color-border)]">
       <div className="flex justify-between items-start mb-1">
         <span className="text-[var(--color-text)] font-medium text-[var(--text-sm)]">{patientName}</span>
-        <span className="text-[0.75rem] bg-[var(--color-error)]/10 text-[var(--color-error)] px-[var(--space-2)] py-[2px] rounded-[var(--radius-sm)] border border-[var(--color-error)]/20">
+        <span className="text-[0.75rem] bg-[var(--color-error)]/[0.08] text-[var(--color-error)] opacity-80 px-[var(--space-2)] py-[2px] rounded-full border border-[var(--color-error)]/[0.12]">
           {readingLabel}: {readingValue}
         </span>
       </div>

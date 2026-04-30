@@ -1,0 +1,5 @@
+[
+  { "id": "1", "time": "09:30 AM", "patientName": "Thomas G.", "type": "General Checkup", "accentColor": "blue" },
+  { "id": "2", "time": "10:15 AM", "patientName": "Maria S.", "type": "Cardiology Consult", "accentColor": "purple" },
+  { "id": "3", "time": "11:00 AM", "patientName": "William P.", "type": "Post-Op Review", "accentColor": "green" }
+]

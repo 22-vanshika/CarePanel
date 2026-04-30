@@ -1,13 +1,13 @@
-import React from 'react';
+import { memo } from 'react';
 import type { Patient } from '../types';
-import { statusBadgeClass } from '../utils/statusStyles';
+import { statusBadgeClass } from '../../../shared/utils/statusStyles';
 
 interface PatientListItemProps {
   patient: Patient;
   onClick: (id: string) => void;
 }
 
-export const PatientListItem: React.FC<PatientListItemProps> = ({ patient, onClick }) => {
+export const PatientListItem = memo<PatientListItemProps>(({ patient, onClick }) => {
   return (
     <div
       onClick={() => onClick(patient.id)}
@@ -39,4 +39,4 @@ export const PatientListItem: React.FC<PatientListItemProps> = ({ patient, onCli
       </div>
     </div>
   );
-};
+});

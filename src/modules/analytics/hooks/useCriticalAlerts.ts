@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { AsyncState } from '../../../shared/types/common';
-import { patientService, type CriticalAlert } from '../../patients/services/patientService';
+import { patientService, type CriticalAlert } from '../../../shared/services/patientService';
 
 export const useCriticalAlerts = () => {
     const [state, setState] = useState<AsyncState<CriticalAlert[]>>({
