@@ -9,7 +9,7 @@ interface ViewToggleProps {
 
 export const ViewToggle: React.FC<ViewToggleProps> = ({ viewMode, onToggle }) => {
   return (
-    <div className="flex items-center rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-[var(--space-1)]">
+    <div className="flex items-center rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-[var(--space-1)] gap-2">
       <Button
         type="button"
         variant={viewMode === 'GRID' ? 'secondary' : 'ghost'}

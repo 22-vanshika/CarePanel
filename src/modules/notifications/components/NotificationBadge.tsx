@@ -3,7 +3,15 @@ import { useNotifications } from '../hooks/useNotifications';
 import { NotificationList } from './NotificationList';
 
 export const NotificationBadge: React.FC = () => {
-    const { notifications, unreadCount, markAsRead, markAllAsRead } = useNotifications();
+    const {
+        notifications,
+        unreadCount,
+        markAsRead,
+        markAllAsRead,
+        permission,
+        requestPermission
+    } = useNotifications();
+
     const [isOpen, setIsOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -24,8 +32,43 @@ export const NotificationBadge: React.FC = () => {
         };
     }, [isOpen]);
 
-    return (
-        <div className="relative" ref={containerRef}>
+    const handleEnableNotifications = async (e: React.MouseEvent) => {
+        e.stopPropagation();
+        await requestPermission();
+    };
+
+    // Render the appropriate icon/button based on permission state
+    const renderTrigger = () => {
+        if (permission === 'denied') {
+            return (
+                <button
+                    disabled
+                    className="p-2 flex items-center gap-2 text-[var(--color-text-muted)] opacity-50 cursor-not-allowed rounded-lg text-xs"
+                    title="Notifications disabled in browser settings"
+                >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                    </svg>
+                    <span className="hidden lg:inline">Notifications Off</span>
+                </button>
+            );
+        }
+
+        if (permission === 'default') {
+            return (
+                <button
+                    onClick={handleEnableNotifications}
+                    className="px-3 py-1.5 flex items-center gap-2 bg-[var(--color-primary)]/10 text-[var(--color-primary)] hover:bg-[var(--color-primary)]/20 rounded-full text-xs font-medium transition-all animate-pulse"
+                >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                    Enable Notifications
+                </button>
+            );
+        }
+
+        return (
             <button
                 onClick={toggleOpen}
                 className="p-2 relative text-[var(--color-text-muted)] hover:bg-[var(--color-secondary)]/10 rounded-lg focus:outline-none transition-colors"
@@ -40,19 +83,35 @@ export const NotificationBadge: React.FC = () => {
                     </span>
                 )}
             </button>
+        );
+    };
 
-            {isOpen && (
-                <div className="absolute right-0 mt-2 w-80 bg-[var(--color-surface)] rounded-lg shadow-lg border border-[var(--color-secondary)]/20 z-50 overflow-hidden">
-                    <div className="p-3 border-b border-[var(--color-secondary)]/20 bg-[var(--color-surface)] flex justify-between items-center">
+    return (
+        <div className="relative flex items-center" ref={containerRef}>
+            {renderTrigger()}
+
+            {isOpen && permission === 'granted' && (
+                <div className="absolute right-0 top-full mt-2 w-80 bg-[var(--color-surface)] rounded-lg shadow-xl border border-[var(--color-border)] z-[100] overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="p-3 border-b border-[var(--color-border)] bg-[var(--color-surface)] flex justify-between items-center">
                         <h3 className="text-sm font-semibold text-[var(--color-text)]">Notifications</h3>
+                        {unreadCount > 1 && (
+                            <button
+                                onClick={() => markAllAsRead()}
+                                className="text-[10px] text-[var(--color-primary)] hover:underline"
+                            >
+                                Mark all as read
+                            </button>
+                        )}
                     </div>
-                    <NotificationList
-                        notifications={notifications}
-                        onMarkAsRead={markAsRead}
-                        onMarkAllAsRead={markAllAsRead}
-                    />
+                    <div className="max-h-[400px] overflow-y-auto">
+                        <NotificationList
+                            notifications={notifications}
+                            onMarkAsRead={markAsRead}
+                        />
+                    </div>
                 </div>
             )}
         </div>
     );
 };
+

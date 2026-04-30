@@ -9,7 +9,7 @@ export const statusBadgeClass = (status: PatientStatus): string => {
     case 'OBSERVATION':
       return 'bg-[var(--color-warning)]/10 text-[var(--color-warning)]';
     case 'DISCHARGED':
-      return 'bg-[var(--color-secondary)]/10 text-[var(--color-secondary)]';
+      return 'bg-[var(--color-secondary)]/10 text-[var(--color-text-muted)]';
     default:
       return 'bg-[var(--color-secondary)]/10 text-[var(--color-text)]';
   }

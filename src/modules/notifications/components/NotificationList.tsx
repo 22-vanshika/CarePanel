@@ -4,7 +4,6 @@ import type { AppNotification, NotificationType } from '../types';
 interface NotificationListProps {
     notifications: AppNotification[];
     onMarkAsRead: (id: string) => void;
-    onMarkAllAsRead: () => void;
 }
 
 const getRelativeTime = (isoString: string): string => {
@@ -30,10 +29,8 @@ const getTypeColor = (type: NotificationType) => {
 
 export const NotificationList: React.FC<NotificationListProps> = ({
     notifications,
-    onMarkAsRead,
-    onMarkAllAsRead
+    onMarkAsRead
 }) => {
-    const allRead = notifications.every(n => n.read);
 
     if (notifications.length === 0) {
         return (
@@ -45,16 +42,6 @@ export const NotificationList: React.FC<NotificationListProps> = ({
 
     return (
         <div className="flex flex-col w-full max-h-96 overflow-y-auto bg-[var(--color-surface)]">
-            {!allRead && (
-                <div className="p-2 flex justify-end border-b border-[var(--color-secondary)]/20">
-                    <button
-                        onClick={onMarkAllAsRead}
-                        className="text-xs font-medium text-[var(--color-primary)] hover:underline"
-                    >
-                        Mark all as read
-                    </button>
-                </div>
-            )}
             <ul className="flex flex-col">
                 {notifications.map((notification) => (
                     <li
@@ -68,8 +55,8 @@ export const NotificationList: React.FC<NotificationListProps> = ({
                                     {notification.title}
                                 </span>
                                 {!notification.read && (
-                                    <span 
-                                        className="inline-flex w-2 h-2 rounded-full bg-[var(--color-primary)]" 
+                                    <span
+                                        className="inline-flex w-2 h-2 rounded-full bg-[var(--color-primary)]"
                                         aria-label="Unread"
                                     />
                                 )}

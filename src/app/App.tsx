@@ -5,7 +5,7 @@ import { router } from './router'
 import ErrorBoundary from '../shared/components/ErrorBoundary';
 import { useAuthStore } from './store/authStore'
 import { onAuthStateChanged } from '../modules/auth/services/firebaseAuth'
-import { registerServiceWorker, requestNotificationPermission } from '../modules/notifications/services/notificationService'
+import { registerServiceWorker } from '../modules/notifications/services/notificationService'
 
 const App = () => {
     const setUser = useAuthStore(state => state.setUser)
@@ -23,9 +23,9 @@ const App = () => {
             setLoading(false)
         })
         registerServiceWorker()
-        requestNotificationPermission()
         return unsubscribe
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
 
     return (
       <ErrorBoundary>

@@ -39,13 +39,13 @@ export const AnalyticsPage: React.FC = () => {
         );
     }
 
-    const dateDisplay = dateRangeStart && dateRangeEnd 
-        ? `${dateRangeStart} to ${dateRangeEnd}` 
+    const dateDisplay = dateRangeStart && dateRangeEnd
+        ? `${dateRangeStart} to ${dateRangeEnd}`
         : 'Last 7 Days';
 
     return (
-        <div className="p-8 space-y-6">
-            <div className="flex items-center justify-between">
+        <div className="p-8 space-y-6 max-w-7xl mx-auto">
+            <div className="flex items-center justify-between ">
                 <div>
                     <h1 className="text-2xl font-bold text-[var(--color-text)]">Detailed Analytics</h1>
                     <p className="text-[var(--color-text-muted)]">Showing data for: <span className="font-medium text-[var(--color-text)]">{dateDisplay}</span></p>
