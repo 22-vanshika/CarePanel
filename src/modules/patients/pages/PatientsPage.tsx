@@ -6,6 +6,8 @@ import { ViewToggle } from '../components/ViewToggle';
 import { PatientCard } from '../components/PatientCard';
 import { PatientListItem } from '../components/PatientListItem';
 import { useNotifications } from '../../notifications/hooks/useNotifications';
+import { Card } from '@shared/components/Card/Card';
+import { Button } from '@shared/components/Button/Button';
 
 const PatientsPage: React.FC = () => {
     const navigate = useNavigate();
@@ -23,21 +25,18 @@ const PatientsPage: React.FC = () => {
 
     if (error) {
         return (
-            <div className="p-8 flex flex-col items-center justify-center text-center bg-white rounded-xl shadow-sm border border-[var(--color-secondary)]/20 mt-6 mx-6">
+            <Card className="p-8 flex flex-col items-center justify-center text-center mt-6 mx-6" padding="md" elevation="sm">
                 <div className="text-[var(--color-error)] mb-4">
                     <svg className="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77 1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                     </svg>
                 </div>
                 <h3 className="text-lg font-semibold text-[var(--color-text)] mb-2">Failed to load patients</h3>
                 <p className="text-[var(--color-text-muted)] mb-6">{error}</p>
-                <button
-                    onClick={handleRetry}
-                    className="btn-primary"
-                >
+                <Button type="button" onClick={handleRetry} variant="primary" size="md">
                     Try Again
-                </button>
-            </div>
+                </Button>
+            </Card>
         );
     }
 
@@ -50,9 +49,9 @@ const PatientsPage: React.FC = () => {
                     <p className="text-xs text-[var(--color-text-muted)] mt-1">Click 'Demo Notification' to test the Service Worker integration</p>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <button onClick={triggerTestNotification} className="btn-secondary">
+                    <Button type="button" onClick={triggerTestNotification} variant="secondary" size="sm">
                         🔔 Demo Notification
-                    </button>
+                    </Button>
                     <ViewToggle viewMode={viewMode} onToggle={setViewMode} />
                 </div>
             </div>
@@ -60,14 +59,14 @@ const PatientsPage: React.FC = () => {
             {isLoading ? (
                 <div className={viewMode === 'GRID' ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" : "space-y-4"}>
                     {Array.from({ length: 6 }).map((_, i) => (
-                        <div key={i} className="animate-pulse bg-[var(--color-secondary)]/10 rounded-xl h-48 w-full"></div>
+                        <Card key={i} className="animate-pulse h-48 w-full" padding="md" elevation="sm" />
                     ))}
                 </div>
             ) : patients.length === 0 ? (
-                <div className="p-12 text-center bg-white rounded-xl border border-[var(--color-secondary)]/20">
+                <Card className="p-12 text-center" padding="md" elevation="sm">
                     <h3 className="text-lg font-medium text-[var(--color-text)] mb-2">No patients found</h3>
                     <p className="text-[var(--color-text-muted)]">There are no patients matching your current criteria.</p>
-                </div>
+                </Card>
             ) : (
                 <div className={viewMode === 'GRID' ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" : "space-y-4"}>
                     {patients.map(patient => (

@@ -12,7 +12,7 @@ export const Card: React.FC<CardProps> = ({
   className = '',
   ...props
 }) => {
-  const baseClasses = 'bg-white/[0.06] backdrop-blur-[20px] rounded-[var(--radius-lg)] border border-white/[0.12]';
+  const baseClasses = 'bg-[var(--color-surface)] rounded-[var(--radius-lg)] border border-[var(--color-border)] shadow-[var(--shadow-md)]';
 
   const paddingClasses = {
     none: 'p-0',

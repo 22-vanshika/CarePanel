@@ -17,17 +17,17 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   // Base classes use our design tokens mapped via Tailwind arbitrary values
   const baseClasses = `
-    inline-flex items-center justify-center rounded-[var(--radius-md)] font-medium 
-    transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2
+    inline-flex items-center justify-center gap-2 rounded-[var(--radius-md)] font-medium
+    transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/40 focus:ring-offset-2 focus:ring-offset-[var(--color-bg)]
     disabled:opacity-50 disabled:cursor-not-allowed
   `;
 
   // Variant classes define specific token usages
   const variantClasses = {
     primary: 'bg-[var(--color-primary)] text-[var(--color-surface)] hover:opacity-90',
-    secondary: 'bg-transparent text-[var(--color-primary)] border border-[var(--color-primary)] hover:bg-[var(--color-bg)]',
+    secondary: 'bg-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-primary)] hover:bg-[var(--color-primary)]/[.08]',
     danger: 'bg-[var(--color-error)] text-[var(--color-surface)] hover:opacity-90',
-    ghost: 'bg-transparent text-[var(--color-text)] hover:bg-[var(--color-bg)]',
+    ghost: 'bg-transparent text-[var(--color-text)] hover:bg-[var(--color-border)]',
   };
 
   // Size classes map to spacing and typography tokens

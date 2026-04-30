@@ -188,7 +188,9 @@ export const DashboardPage: React.FC = () => {
                     <Card padding="md" elevation="md">
                         <div className="flex items-center justify-between mb-[var(--space-4)]">
                             <h2 className="text-[var(--text-lg)] font-semibold text-[var(--color-text)] opacity-85">Upcoming</h2>
-                            <button className="text-[var(--color-text-muted)] opacity-45 hover:opacity-100 transition-opacity"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" /></svg></button>
+                            <Button type="button" variant="ghost" size="sm" className="text-[var(--color-text-muted)] opacity-45 hover:opacity-100 transition-opacity">
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" /></svg>
+                            </Button>
                         </div>
                         <div className="space-y-[var(--space-4)]">
                             {appointments.map(apt => (

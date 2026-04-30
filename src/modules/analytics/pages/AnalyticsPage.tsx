@@ -4,6 +4,7 @@ import { useUiStore } from '../../../app/store/uiStore';
 import { AdmissionsChart } from '../components/AdmissionsChart';
 import { StatusPieChart } from '../components/StatusPieChart';
 import { DiagnosisChart } from '../components/DiagnosisChart';
+import { Card } from '@shared/components/Card/Card';
 
 export const AnalyticsPage: React.FC = () => {
     const { summary, isLoading, error } = useAnalyticsData();
@@ -13,10 +14,12 @@ export const AnalyticsPage: React.FC = () => {
     if (error) {
         return (
             <div className="p-8">
-                <div className="bg-[var(--color-error)]/10 text-[var(--color-error)] p-4 rounded-xl border border-[var(--color-error)]/20">
-                    <h2 className="font-semibold mb-1">Error Loading Analytics</h2>
-                    <p className="text-sm">{error}</p>
-                </div>
+                <Card className="p-4" padding="md" elevation="sm">
+                    <div className="text-[var(--color-error)]">
+                        <h2 className="font-semibold mb-1">Error Loading Analytics</h2>
+                        <p className="text-sm">{error}</p>
+                    </div>
+                </Card>
             </div>
         );
     }
@@ -27,10 +30,10 @@ export const AnalyticsPage: React.FC = () => {
                 <div className="flex items-center justify-between">
                     <h1 className="text-2xl font-bold text-[var(--color-text)]">Detailed Analytics</h1>
                 </div>
-                <div className="bg-[var(--color-surface)] border border-[var(--color-secondary)]/10 h-[400px] rounded-xl animate-pulse"></div>
+                <Card className="h-[400px] animate-pulse" padding="none" elevation="sm" />
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
-                    <div className="bg-[var(--color-surface)] border border-[var(--color-secondary)]/10 h-[400px] rounded-xl animate-pulse"></div>
-                    <div className="bg-[var(--color-surface)] border border-[var(--color-secondary)]/10 h-[400px] rounded-xl animate-pulse"></div>
+                    <Card className="h-[400px] animate-pulse" padding="none" elevation="sm" />
+                    <Card className="h-[400px] animate-pulse" padding="none" elevation="sm" />
                 </div>
             </div>
         );

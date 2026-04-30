@@ -29,7 +29,7 @@ export const showLocalNotification = async (title: string, body: string): Promis
         if (registration) {
             await registration.showNotification(title, { body, icon: '/favicon.svg' });
         }
-    } catch (error) {
+    } catch {
         // fail silently
     }
 };

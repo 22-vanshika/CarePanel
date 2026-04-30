@@ -1,6 +1,9 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { usePatient } from '../hooks/usePatient';
+import { Card } from '@shared/components/Card/Card';
+import { Button } from '@shared/components/Button/Button';
+import { StatusBadge } from '@shared/components/StatusBadge/StatusBadge';
 
 const PatientDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -13,8 +16,8 @@ const PatientDetailPage: React.FC = () => {
     return (
       <div className="p-6 max-w-4xl mx-auto space-y-6 animate-pulse">
         <div className="h-8 bg-[var(--color-secondary)]/20 w-24 rounded-md mb-8"></div>
-        <div className="card p-8 h-64"></div>
-        <div className="card p-8 h-48"></div>
+        <Card className="h-64" padding="md" elevation="sm" />
+        <Card className="h-48" padding="md" elevation="sm" />
       </div>
     );
   }
@@ -22,33 +25,35 @@ const PatientDetailPage: React.FC = () => {
   if (error || !patient) {
     return (
       <div className="p-6 max-w-4xl mx-auto mt-12">
-        <div className="text-center card p-12">
+        <Card className="text-center p-12">
           <h3 className="text-xl font-semibold text-[var(--color-text)] mb-2">Patient Not Found</h3>
           <p className="text-[var(--color-text-muted)] mb-8">{error || "The patient record could not be found."}</p>
-          <button 
-            onClick={handleBack}
-            className="px-6 py-2 bg-[var(--color-primary)] text-white rounded-md hover:opacity-90 transition-colors"
-          >
+          <Button type="button" onClick={handleBack} variant="primary" size="md">
             Back to Patients
-          </button>
-        </div>
+          </Button>
+        </Card>
       </div>
     );
   }
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <button 
+      <Button
+        type="button"
+        variant="ghost"
+        size="sm"
+        className="mb-6 inline-flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
         onClick={handleBack}
-        className="text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)] mb-6 flex items-center"
       >
-        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-        </svg>
-        Back to Directory
-      </button>
+        <span className="inline-flex items-center gap-2">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Back to Directory
+        </span>
+      </Button>
 
-      <div className="card overflow-hidden mb-6">
+      <Card className="overflow-hidden mb-6">
         <div className="p-8 border-b border-[var(--color-secondary)]/20 flex justify-between items-start">
           <div>
             <h1 className="text-3xl font-bold text-[var(--color-text)]">
@@ -58,9 +63,7 @@ const PatientDetailPage: React.FC = () => {
               Patient ID: {patient.id} • Last Visit: {new Date(patient.lastVisit).toLocaleDateString()}
             </p>
           </div>
-          <span className="px-4 py-1.5 text-sm font-semibold rounded-full bg-[var(--color-secondary)]/10 text-[var(--color-text)] uppercase tracking-wider">
-            {patient.status}
-          </span>
+          <StatusBadge status={patient.status} className="uppercase tracking-wider" />
         </div>
 
         <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -100,9 +103,9 @@ const PatientDetailPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Card>
 
-      <div className="card overflow-hidden">
+      <Card className="overflow-hidden">
         <div className="p-8">
           <h3 className="text-lg font-semibold text-[var(--color-text)] mb-4 border-b border-[var(--color-secondary)]/10 pb-2">
             Contact Information
@@ -126,7 +129,7 @@ const PatientDetailPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Card>
     </div>
   );
 };

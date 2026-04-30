@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import type { LoginCredentials } from '../types';
+import Input from '@shared/components/Input';
+import { Button } from '@shared/components/Button/Button';
 
 interface LoginFormProps {
   onSubmit: (credentials: LoginCredentials) => void;
@@ -40,11 +42,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error }) => 
           <label className="text-[10px] pt-sans-bold text-[var(--color-text-muted)] uppercase tracking-widest" htmlFor="email">
             Email Address
           </label>
-          <input
+          <Input
             id="email"
             type="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
             required
             disabled={isLoading}
             className="w-full bg-white/[0.05] border border-white/10 rounded-lg px-3 py-2.5 text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-primary)] focus:bg-white/[0.08] transition-colors placeholder:text-[var(--color-secondary)] pt-sans-regular"
@@ -59,20 +61,22 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error }) => 
             </label>
           </div>
           <div className="relative group">
-            <input
+            <Input
               id="password"
               type={showPassword ? "text" : "password"}
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
               required
               disabled={isLoading}
               className="w-full bg-white/[0.05] border border-white/10 rounded-lg pl-3 pr-10 py-2.5 text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-primary)] focus:bg-white/[0.08] transition-colors placeholder:text-[var(--color-secondary)] pt-sans-regular"
               placeholder="••••••••"
             />
-            <button
+            <Button
               type="button"
+              variant="ghost"
+              size="sm"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute inset-y-0 right-0 pr-3 flex items-center z-10 text-[var(--color-secondary)] hover:text-white transition-colors cursor-pointer"
+              className="absolute inset-y-0 right-0 pr-3 flex items-center z-10 text-[var(--color-secondary)] hover:text-white transition-colors cursor-pointer p-0 h-auto"
             >
               {showPassword ? (
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -84,11 +88,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error }) => 
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18" />
                 </svg>
               )}
-            </button>
+            </Button>
           </div>
         </div>
 
-        <button
+        <Button
           type="submit"
           disabled={isLoading}
           className="w-full bg-[var(--color-primary)] text-[var(--color-surface)] pt-sans-bold py-2.5 mt-6 rounded-[10px] border border-white/15 transition-all hover:brightness-110 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm"
@@ -104,7 +108,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error }) => 
           ) : (
             'Sign in to workspace'
           )}
-        </button>
+        </Button>
       </form>
 
       <div className="pt-6 mt-8 relative">
@@ -121,13 +125,15 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error }) => 
       <div className="mt-6 bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/20 rounded-lg p-4">
         <div className="flex items-center justify-between mb-3">
           <span className="text-[11px] pt-sans-bold text-[var(--color-primary)]/80 uppercase tracking-wider">Demo Credentials</span>
-          <button
+          <Button
             type="button"
+            variant="ghost"
+            size="sm"
             onClick={handleAutofillDemo}
             className="text-[11px] text-[var(--color-primary)] pt-sans-bold hover:underline"
           >
             Autofill
-          </button>
+          </Button>
         </div>
         <div className="text-xs space-y-2 font-mono text-[var(--color-text)]/90">
           <div className="flex justify-between items-center">

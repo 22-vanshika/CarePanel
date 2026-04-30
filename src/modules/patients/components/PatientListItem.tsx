@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import type { Patient } from '../types';
-import { statusBadgeClass } from '../../../shared/utils/statusStyles';
+import { StatusBadge } from '../../../shared/components/StatusBadge/StatusBadge';
 
 interface PatientListItemProps {
   patient: Patient;
@@ -33,9 +33,7 @@ export const PatientListItem = memo<PatientListItemProps>(({ patient, onClick })
       </div>
 
       <div className="ml-4 flex items-center">
-        <span className={`px-2.5 py-1 text-xs font-semibold rounded-full ${statusBadgeClass(patient.status)}`}>
-          {patient.status}
-        </span>
+        <StatusBadge status={patient.status} />
       </div>
     </div>
   );

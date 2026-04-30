@@ -48,15 +48,15 @@
   }
 
   .btn-secondary {
-    @apply bg-[transparent] text-[var(--color-primary)] border border-[var(--color-primary)] px-[var(--space-4)] py-[var(--space-2)] rounded-[var(--radius-md)] font-medium transition-colors hover:bg-[var(--color-bg)];
+    @apply bg-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-primary)] px-[var(--space-4)] py-[var(--space-2)] rounded-[var(--radius-md)] font-medium transition-colors hover:bg-[var(--color-primary)]/[.08];
   }
 
   .card {
-    @apply bg-[var(--color-surface)] rounded-[var(--radius-lg)] p-[var(--space-6)] shadow-[var(--shadow-md)] border border-[var(--color-secondary)]/20;
+    @apply bg-[var(--color-surface)] rounded-[var(--radius-lg)] shadow-[var(--shadow-md)] border border-[var(--color-border)];
   }
 
   .input-field {
-    @apply w-full bg-[var(--color-surface)] border border-[var(--color-secondary)] rounded-[var(--radius-md)] px-[var(--space-3)] py-[var(--space-2)] text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 transition-shadow;
+    @apply w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-md)] px-[var(--space-4)] py-[var(--space-3)] text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/20 transition-shadow;
   }
 
   @keyframes shake {
