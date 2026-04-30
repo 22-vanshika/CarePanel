@@ -39,18 +39,18 @@ export const DashboardPage: React.FC = () => {
     if (!stats) return null;
 
     return (
-        <div className="p-[var(--space-6)] md:p-[var(--space-8)] space-y-[var(--space-8)] max-w-7xl mx-auto">
+        <div className="p-4 md:p-8 space-y-6 md:space-y-10 max-w-7xl mx-auto">
             {/* GREETING HEADER */}
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-                <div>
-                    <h1 className="page-title">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div className="space-y-1">
+                    <h1 className="text-2xl md:text-4xl font-bold text-[var(--color-text)] tracking-tight font-display">
                         Good morning, <span className="text-[var(--color-primary)]">Dr. {doctorName}</span>
                     </h1>
-                    <p className="page-subtitle">
+                    <p className="text-[var(--text-sm)] md:text-[var(--text-base)] text-[var(--color-text-muted)] font-sans">
                         {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })} — Here's what's happening today
                     </p>
                 </div>
-                <Button variant="secondary" className="bg-[var(--color-surface)] border-[var(--color-border)] text-[var(--color-text)]">
+                <Button variant="secondary" className="w-full md:w-auto bg-[var(--color-surface)] border-[var(--color-border)] text-[var(--color-text)] h-11 px-6 shadow-sm">
                     <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
                     New Patient
                 </Button>

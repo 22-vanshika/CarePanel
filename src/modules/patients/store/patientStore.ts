@@ -47,5 +47,3 @@ export const usePatientStore = create<PatientStore>()(
 
 // Atomic Selectors
 export const selectViewMode = (state: PatientStore) => state.viewMode;
-export const selectSelectedPatientId = (state: PatientStore) => state.selectedPatientId;
-export const selectActiveFilters = (state: PatientStore) => state.activeFilters;

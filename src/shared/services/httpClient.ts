@@ -1,5 +1,5 @@
 // HTTP client using native fetch — no external dependency needed
-// Interceptor logic lives in interceptors.ts
+
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
 

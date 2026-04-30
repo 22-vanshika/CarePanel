@@ -41,15 +41,15 @@ const PatientsPage: React.FC = () => {
     }
 
     return (
-        <div className="p-[var(--space-6)] max-w-7xl mx-auto">
-            <div className="flex justify-between items-center mb-[var(--space-6)]">
+        <div className="p-4 md:p-8 space-y-6 md:space-y-10 max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div>
-                    <h1 className="page-title">Patients</h1>
-                    <p className="page-subtitle">Manage and view patient directory</p>
+                    <h1 className="text-2xl md:text-4xl font-bold text-[var(--color-text)] tracking-tight font-display">Patients</h1>
+                    <p className="text-[var(--text-sm)] md:text-[var(--text-base)] text-[var(--color-text-muted)] font-sans">Manage and view patient directory</p>
                 </div>
-                <div className="flex items-center space-x-[var(--space-4)]">
-                    <Button type="button" onClick={triggerTestNotification} variant="secondary" size="sm">
-                        🔔 Demo Notification
+                <div className="flex items-center gap-3 w-full md:w-auto">
+                    <Button type="button" onClick={triggerTestNotification} variant="secondary" size="sm" className="flex-1 md:flex-none">
+                        🔔 Demo
                     </Button>
                     <ViewToggle viewMode={viewMode} onToggle={setViewMode} />
                 </div>

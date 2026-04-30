@@ -43,8 +43,3 @@ export const useUiStore = create<UiStore>()(
         { name: 'UiStore' }
     )
 );
-
-// Atomic Selectors
-export const selectIsSidebarOpen = (state: UiStore) => state.isSidebarOpen;
-export const selectTheme = (state: UiStore) => state.theme;
-export const selectDateRange = (state: UiStore) => state.dateRange;

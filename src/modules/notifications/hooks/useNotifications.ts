@@ -39,7 +39,7 @@ export const useNotifications = () => {
     };
 
     const triggerTestNotification = useCallback(async (): Promise<void> => {
-        console.log('Triggering test notification, current permission:', permission);
+
         
         let currentPermission = permission;
 

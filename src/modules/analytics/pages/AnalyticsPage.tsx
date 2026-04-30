@@ -36,19 +36,19 @@ export const AnalyticsPage: React.FC = () => {
         : 'Apr 01 - Apr 30, 2026';
 
     return (
-        <div className="p-8 space-y-8 max-w-7xl mx-auto">
+        <div className="p-4 md:p-8 space-y-6 md:space-y-10 max-w-7xl mx-auto">
             {/* HEADER SECTION */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                <div>
-                    <h1 className="page-title">Clinical Performance</h1>
-                    <p className="page-subtitle">
-                        Advanced longitudinal analysis for <span className="text-[var(--color-text)] font-semibold tracking-normal">{dateDisplay}</span>. Tracking clinic throughput and patient outcomes.
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 md:gap-8">
+                <div className="space-y-1.5 md:space-y-2">
+                    <h1 className="text-2xl md:text-4xl font-bold text-[var(--color-text)] tracking-tight font-display">Clinical Performance</h1>
+                    <p className="text-[var(--text-sm)] md:text-[var(--text-base)] text-[var(--color-text-muted)] max-w-2xl font-sans leading-relaxed text-pretty">
+                        Advanced longitudinal analysis for <span className="text-[var(--color-text)] font-semibold tracking-normal bg-[var(--color-primary)]/5 px-2 py-0.5 rounded-md border border-[var(--color-primary)]/10 whitespace-nowrap inline-block my-1">{dateDisplay}</span>. Tracking clinic throughput and patient outcomes across all departments.
                     </p>
                 </div>
-                <div className="flex items-center gap-3 bg-[var(--color-surface)] border border-[var(--color-border)] p-1.5 rounded-xl text-xs font-medium">
-                    <button className="px-4 py-1.5 rounded-lg hover:bg-[var(--color-border)] transition-colors">Daily</button>
-                    <button className="px-4 py-1.5 rounded-lg hover:bg-[var(--color-border)] transition-colors">Weekly</button>
-                    <button className="px-4 py-1.5 bg-[var(--color-primary)] text-white shadow-lg rounded-lg transition-all">Monthly</button>
+                <div className="flex items-center w-full lg:w-auto bg-[var(--color-surface)] border border-[var(--color-border)] p-1 rounded-xl text-xs font-medium shadow-sm">
+                    <button className="flex-1 lg:px-6 py-2.5 rounded-lg hover:bg-[var(--color-border)] transition-colors">Daily</button>
+                    <button className="flex-1 lg:px-6 py-2.5 rounded-lg hover:bg-[var(--color-border)] transition-colors">Weekly</button>
+                    <button className="flex-1 lg:px-6 py-2.5 bg-[var(--color-primary)] text-white shadow-md rounded-lg transition-all font-semibold">Monthly</button>
                 </div>
             </div>
 
