@@ -107,7 +107,7 @@ export const DashboardPage: React.FC = () => {
                         <div className="flex items-center justify-between mb-6">
                             <h2 className="text-lg font-semibold text-[var(--color-text)] tracking-tight font-display">Patient Flow</h2>
                             <div className="flex items-center gap-2">
-                                <div className="flex items-center gap-4 mr-4 text-[10px] font-medium uppercase tracking-wider">
+                                <div className="flex lg:flex-row flex-col items-center lg:gap-4 mr-4 text-[0.6rem] font-medium uppercase tracking-wider">
                                     <div className="flex items-center gap-1.5">
                                         <div className="w-2 h-2 rounded-full bg-[var(--color-primary)]" />
                                         <span className="text-[var(--color-text-muted)]">Admissions</span>
@@ -117,7 +117,7 @@ export const DashboardPage: React.FC = () => {
                                         <span className="text-[var(--color-text-muted)]">Discharges</span>
                                     </div>
                                 </div>
-                                <select className="bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--text-xs)] text-[var(--color-text)] rounded-[var(--radius-md)] px-3 py-1 outline-none focus:border-[var(--color-primary)] transition-colors">
+                                <select className="bg-[var(--color-bg)] border border-[var(--color-border)] text-[0.6rem] text-[var(--color-text)] rounded-[var(--radius-md)] px-3 py-1 outline-none focus:border-[var(--color-primary)] transition-colors justify-self-end">
                                     <option>This Week</option>
                                     <option>Last Week</option>
                                 </select>
