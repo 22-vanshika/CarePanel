@@ -5,7 +5,7 @@
 > 1. **Enable Notifications**: To test the Service Worker integration, you **must allow notifications** when prompted by the browser. If the prompt was dismissed, please enable notifications in your browser's site settings.
 > 2. **Test Account Credentials**: For a quick walkthrough without creating your own account, use:
 >    - **Email**: `doctor@clinic.com`
->    - **Password**: `password123`
+>    - **Password**: `Arvgyd@1234`
 > 3. **Manual Notification Trigger**: Since the application uses a mock data layer, use the **"🔔 Demo Notification"** button located on the **Patients Page** header to trigger a local push notification and verify the Service Worker lifecycle.
 
 ---

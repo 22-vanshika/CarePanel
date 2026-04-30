@@ -13,16 +13,16 @@ export const PatientListItem = memo<PatientListItemProps>(({ patient, onClick })
       onClick={() => onClick(patient.id)}
       className="card p-4 cursor-pointer hover:bg-[var(--color-surface)] transition-colors flex items-center justify-between"
     >
-      <div className="flex items-center space-x-6 flex-1">
-        <div className="w-48">
-          <h3 className="text-base font-semibold text-[var(--color-text)]">
+      <div className="flex items-center space-x-3 flex-1 min-w-0">
+        <div className="flex-1 min-w-0 sm:w-48 sm:flex-none">
+          <h3 className="text-base font-semibold text-[var(--color-text)] truncate">
             {patient.firstName} {patient.lastName}
           </h3>
-          <p className="text-sm text-[var(--color-text-muted)]">Age: {patient.age} • {patient.gender}</p>
+          <p className="text-sm text-[var(--color-text-muted)] truncate">Age: {patient.age} • {patient.gender}</p>
         </div>
-        
+
         <div className="flex-1 hidden md:block">
-          <p className="text-sm font-medium text-[var(--color-text)]">{patient.diagnosis}</p>
+          <p className="text-sm font-medium text-[var(--color-text)] truncate">{patient.diagnosis}</p>
           <p className="text-sm text-[var(--color-text-muted)]">Diagnosis</p>
         </div>
 

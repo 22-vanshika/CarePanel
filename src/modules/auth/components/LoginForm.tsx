@@ -23,7 +23,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error }) => 
 
   const handleAutofillDemo = () => {
     setEmail('doctor@clinic.com');
-    setPassword('password123');
+    setPassword('Arvgyd@1234');
   };
 
   return (
@@ -142,7 +142,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error }) => 
           </div>
           <div className="flex justify-between items-center">
             <span className="font-sans text-[var(--color-text-muted)]">Password</span>
-            <span>password123</span>
+            <span>Arvgyd@1234</span>
           </div>
         </div>
       </div>

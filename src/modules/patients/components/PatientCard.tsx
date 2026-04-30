@@ -25,7 +25,7 @@ export const PatientCard = memo<PatientCardProps>(({ patient, onClick }) => {
         </div>
         <StatusBadge status={patient.status} />
       </div>
-      
+
       <div className="space-y-[var(--space-3)] flex-grow mt-[var(--space-2)]">
         <div className="flex items-start">
           <span className="text-[var(--text-sm)] text-[var(--color-text-muted)] w-24">Diagnosis</span>
