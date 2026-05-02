@@ -50,7 +50,7 @@ const PatientsPage: React.FC = () => {
             </div>
 
             {isLoading ? (
-                <div className={viewMode === 'GRID' ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--space-6)]" : "space-y-[var(--space-4)]"}>
+                <div className={viewMode === 'GRID' ? "grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-[var(--space-6)]" : "space-y-[var(--space-4)]"}>
                     {Array.from({ length: 6 }).map((_, i) => (
                         <Card key={i} className="animate-pulse h-48 w-full bg-[var(--color-surface)]" padding="none" elevation="sm" />
                     ))}
@@ -61,7 +61,7 @@ const PatientsPage: React.FC = () => {
                     <p className="text-[var(--color-text-muted)]">There are no patients matching your current criteria.</p>
                 </Card>
             ) : (
-                <div className={viewMode === 'GRID' ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--space-6)] items-stretch" : "space-y-[var(--space-4)]"}>
+                <div className={viewMode === 'GRID' ? "grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-[var(--space-6)] items-stretch" : "space-y-[var(--space-4)]"}>
                     {patients.map(patient => (
                         viewMode === 'GRID' ? (
                             <PatientCard key={patient.id} patient={patient} onClick={handlePatientClick} />
