@@ -5,7 +5,6 @@ import mockData from '../../../mocks/notifications/feed.json';
 
 export interface NotificationStore {
     notifications: AppNotification[];
-    setNotifications: (notifications: AppNotification[]) => void;
     markAsRead: (id: string) => void;
     markAllAsRead: () => void;
     addNotification: (notification: AppNotification) => void;
@@ -14,11 +13,7 @@ export interface NotificationStore {
 export const useNotificationStore = create<NotificationStore>()(
     devtools(
         (set) => ({
-            notifications: (mockData.data as any[]).map(n => ({
-                ...n,
-                type: n.type as 'INFO' | 'SUCCESS' | 'WARNING' | 'ERROR'
-            })),
-            setNotifications: (notifications) => set({ notifications }),
+            notifications: (mockData.data as AppNotification[]),
             markAsRead: (id) => set((state) => ({
                 notifications: state.notifications.map((n) =>
                     n.id === id ? { ...n, read: true } : n

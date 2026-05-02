@@ -39,30 +39,23 @@ export const useNotifications = () => {
     };
 
     const triggerTestNotification = useCallback(async (): Promise<void> => {
-
-        
         let currentPermission = permission;
 
-        // If default, try to request it first
         if (currentPermission === 'default') {
             currentPermission = await handleRequestPermission();
         }
 
         const title = 'New Patient Added';
         const body = 'A new patient record has been created for Dr. Smith.';
-        
-        // Always add to internal store
+
         const newNotification = createAppNotification(title, body, 'INFO');
         addNotification(newNotification);
 
-        // Try to show browser notification
         if (currentPermission === 'granted') {
             const success = await showLocalNotification(title, body);
             if (!success) {
                 console.warn('Native notification failed, but added to internal list');
             }
-        } else {
-            console.info('Permission not granted for native notifications. Internal notification only.');
         }
     }, [permission, addNotification]);
 

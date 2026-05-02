@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAnalyticsData } from '../hooks/useAnalyticsData';
 import { useUiStore } from '../../../app/store/uiStore';
+import analyticsPageData from '../../../mocks/analytics/analytics-page-kpis.json';
 import { AdmissionsChart } from '../components/AdmissionsChart';
 import { StatusPieChart } from '../components/StatusPieChart';
 import { DiagnosisChart } from '../components/DiagnosisChart';
@@ -33,7 +34,7 @@ export const AnalyticsPage: React.FC = () => {
 
     const dateDisplay = dateRangeStart && dateRangeEnd
         ? `${dateRangeStart} to ${dateRangeEnd}`
-        : 'Apr 01 - Apr 30, 2026';
+        : analyticsPageData.defaultDateRange;
 
     return (
         <div className="p-4 md:p-8 space-y-6 md:space-y-10 max-w-7xl mx-auto">
@@ -54,26 +55,14 @@ export const AnalyticsPage: React.FC = () => {
 
             {/* TOP KPI ROW */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <StatCard
-                    label="Total Patient Volume"
-                    value="1,742"
-                    accessory={{ type: 'delta', value: 12.5, trend: 'up' }}
-                />
-                <StatCard
-                    label="Avg. Wait Time"
-                    value="14.2m"
-                    accessory={{ type: 'delta', value: 4.1, trend: 'up' }}
-                />
-                <StatCard
-                    label="Clinician Utilization"
-                    value="92.4%"
-                    accessory={{ type: 'delta', value: 1.2, trend: 'down' }}
-                />
-                <StatCard
-                    label="Revenue Per Visit"
-                    value="$248"
-                    accessory={{ type: 'delta', value: 8.3, trend: 'up' }}
-                />
+                {analyticsPageData.kpis.map(kpi => (
+                    <StatCard
+                        key={kpi.label}
+                        label={kpi.label}
+                        value={kpi.value}
+                        accessory={{ type: 'delta', value: kpi.deltaValue, trend: kpi.trend as 'up' | 'down' }}
+                    />
+                ))}
             </div>
 
             {/* MAIN TREND CHART */}
@@ -101,10 +90,10 @@ export const AnalyticsPage: React.FC = () => {
                     <div className="w-32 h-32 relative mb-6">
                         <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                             <circle className="text-[var(--color-border)]" strokeWidth="8" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50" />
-                            <circle className="text-[var(--color-primary)]" strokeWidth="8" strokeDasharray={251.2} strokeDashoffset={251.2 * (1 - 0.999)} strokeLinecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50" />
+                            <circle className="text-[var(--color-primary)]" strokeWidth="8" strokeDasharray={251.2} strokeDashoffset={251.2 * (1 - analyticsPageData.systemUptime / 100)} strokeLinecap="round" stroke="currentColor" fill="transparent" r="40" cx="50" cy="50" />
                         </svg>
                         <div className="absolute inset-0 flex flex-col items-center justify-center">
-                            <span className="text-2xl font-bold text-[var(--color-text)]">99.9</span>
+                            <span className="text-2xl font-bold text-[var(--color-text)]">{analyticsPageData.systemUptime}</span>
                             <span className="text-[10px] text-[var(--color-text-muted)] font-medium uppercase">Percent</span>
                         </div>
                     </div>

@@ -5,7 +5,6 @@ import { usePatientStore, selectViewMode } from '../store/patientStore';
 import { ViewToggle } from '../components/ViewToggle';
 import { PatientCard } from '../components/PatientCard';
 import { PatientListItem } from '../components/PatientListItem';
-import { useNotifications } from '../../notifications/hooks/useNotifications';
 import { Card } from '@shared/components/Card/Card';
 import { Button } from '@shared/components/Button/Button';
 
@@ -14,8 +13,6 @@ const PatientsPage: React.FC = () => {
     const { patients, isLoading, error } = usePatients();
     const viewMode = usePatientStore(selectViewMode);
     const setViewMode = usePatientStore(state => state.setViewMode);
-    const { triggerTestNotification } = useNotifications();
-
     const handlePatientClick = useCallback((id: string) => {
         navigate(`/patients/${id}`);
     }, [navigate]);
@@ -48,9 +45,6 @@ const PatientsPage: React.FC = () => {
                     <p className="text-[var(--text-sm)] md:text-[var(--text-base)] text-[var(--color-text-muted)] font-sans">Manage and view patient directory</p>
                 </div>
                 <div className="flex items-center gap-3 w-full md:w-auto">
-                    <Button type="button" onClick={triggerTestNotification} variant="secondary" size="sm" className="flex-1 md:flex-none">
-                        🔔 Demo
-                    </Button>
                     <ViewToggle viewMode={viewMode} onToggle={setViewMode} />
                 </div>
             </div>

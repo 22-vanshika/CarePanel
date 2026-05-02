@@ -6,7 +6,7 @@
 > 2. **Test Account Credentials**: For a quick walkthrough without creating your own account, use:
 >    - **Email**: `doctor@clinic.com`
 >    - **Password**: `Arvgyd@1234`
-> 3. **Manual Notification Trigger**: Since the application uses a mock data layer, use the **"🔔 Demo"** button located on the **Patients Page** header to trigger a local push notification and verify the Service Worker lifecycle.
+> 3. **Manual Notification Trigger**: Since the application uses a mock data layer, use the **"🔔 Demo"** button inside the **notification panel** (click the 🔔 bell icon in the top navbar) to trigger a local push notification and verify the Service Worker lifecycle.
 
 ---
 
@@ -47,6 +47,9 @@ src/
 │   │   └─ uiStore.ts
 │   └─ App.tsx
 ├─ mocks/               # Mock data layer (Simulated API responses)
+│   ├─ analytics/       # dashboard-metrics.json, operational-ledger.json, intelligence-insights.json, analytics-page-kpis.json
+│   ├─ notifications/   # feed.json
+│   └─ patients/        # list.json, patient-details.json
 ├─ modules/             # Micro‑frontend style feature modules
 │   ├─ auth/            # Login, token handling, firebase services
 │   ├─ patients/        # Patient list, detail, CRUD hooks
@@ -73,7 +76,7 @@ src/
 
 | Layer | Store / Hook | Responsibility |
 |-------|--------------|----------------|
-| **Global app state** | `authStore`, `uiStore` (Zustand) | Auth session, theme, sidebar collapse, toast queue – data needed across the whole app |
+| **Global app state** | `authStore`, `uiStore` (Zustand) | Auth session and active date range – data needed across the whole app |
 | **Domain state** | `patientStore`, `notificationStore` (Zustand) | Domain‑specific entities that are shared by several components within the same module |
 | **Server state** | custom async hooks (`useAnalyticsData`, `usePatient`, …) | Fetching, caching, and error handling of remote data; never stored in a global store to avoid stale duplication |
 
@@ -90,7 +93,7 @@ src/
 | **`authStore` placed in `app/` instead of `modules/auth/`** | Authentication state is required by the whole shell (protected routes, header, service‑worker), so a global store eliminates circular imports and respects the App‑Shell boundary. |
 | **Patient list data fetched in hooks, not store** | List data is read‑only for the UI and refreshed on each navigation; storing it would duplicate cache logic and increase store complexity. |
 | **`unreadCount` derived selector, not persisted** | The count is a pure calculation (`notifications.filter(n => !n.read).length`). Deriving it on‑the‑fly guarantees consistency without extra actions. |
-| **`React.memo` on `PatientCard` & `MetricCard`** | These cards are rendered inside large grids; memoisation avoids re‑rendering all cards when unrelated state changes (e.g., sidebar toggle). |
+| **`React.memo` on `PatientCard`** | These cards are rendered inside large grids; memoisation avoids re‑rendering all cards when unrelated state changes. |
 | **Lazy loading on **all** protected routes** | Each module is code‑split (`React.lazy` + `Suspense`). The initial bundle stays < 150 KB, and the page‑skeleton UI gives a polished loading experience. |
 
 ---
@@ -101,7 +104,7 @@ src/
 |--------|-----------|----------------|
 | **auth** | `pages/LoginPage.tsx`, `services/firebaseAuth.ts`, `store/authStore.ts` | User sign‑in, token refresh, session persistence |
 | **patients** | `pages/PatientsPage.tsx`, `components/PatientCard.tsx`, `hooks/usePatient.ts` | CRUD UI for patient records, list/grid view toggling |
-| **analytics** | `pages/DashboardPage.tsx`, `pages/AnalyticsPage.tsx`, `components/MetricCard.tsx` | KPI displays, charts, trend visualisation |
+| **analytics** | `pages/DashboardPage.tsx`, `pages/AnalyticsPage.tsx`, `hooks/useAnalyticsData.ts` | KPI displays, charts, trend visualisation |
 | **notifications** | `services/notificationService.ts`, `components/NotificationList.tsx`, `store/notificationStore.ts` | Push‑notification subscription, UI badge, background handling |
 | **shared** | `components/*`, `hooks/*`, `utils/*`, `services/*` | Design system tokens, reusable UI primitives, generic utilities |
 
@@ -151,7 +154,7 @@ Open `http://localhost:5173` – Vite’s dev server will hot‑reload on file c
 - **Patient Directory** – Grid & list toggle, lazy‑loaded detail view, memoised cards for performance.
 - **Analytics Dashboard** – Metric cards, admissions chart, lazy‑loaded chart components, skeleton UI while loading.
 - **Service‑Worker Notifications** – Background push handling, UI badge, subscription management.
-- **Responsive Layout** – Collapsible sidebar, mobile‑first design.
+- **Responsive Layout** – Fixed sidebar with mobile‑first design.
 - **Design Token System** – All colors, spacing, and typography are defined as CSS variables (`--color-primary`, `--radius-base`, …) and consumed via Tailwind’s utility classes, making the UI **dark‑mode ready via CSS variable token system**.
 
 ---

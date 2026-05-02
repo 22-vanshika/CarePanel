@@ -9,7 +9,8 @@ export const NotificationBadge: React.FC = () => {
         markAsRead,
         markAllAsRead,
         permission,
-        requestPermission
+        requestPermission,
+        triggerTestNotification
     } = useNotifications();
 
     const [isOpen, setIsOpen] = useState(false);
@@ -94,14 +95,22 @@ export const NotificationBadge: React.FC = () => {
                 <div className="absolute right-0 top-full mt-2 w-80 bg-[var(--color-surface)] rounded-lg shadow-xl border border-[var(--color-border)] z-[100] overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
                     <div className="p-3 border-b border-[var(--color-border)] bg-[var(--color-surface)] flex justify-between items-center">
                         <h3 className="text-sm font-semibold text-[var(--color-text)]">Notifications</h3>
-                        {unreadCount > 1 && (
+                        <div className="flex items-center gap-3">
                             <button
-                                onClick={() => markAllAsRead()}
-                                className="text-[10px] text-[var(--color-primary)] hover:underline"
+                                onClick={triggerTestNotification}
+                                className="text-[10px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
                             >
-                                Mark all as read
+                                🔔 Demo
                             </button>
-                        )}
+                            {unreadCount > 1 && (
+                                <button
+                                    onClick={() => markAllAsRead()}
+                                    className="text-[10px] text-[var(--color-primary)] hover:underline"
+                                >
+                                    Mark all as read
+                                </button>
+                            )}
+                        </div>
                     </div>
                     <div className="max-h-[400px] overflow-y-auto">
                         <NotificationList

@@ -49,13 +49,8 @@ export const showLocalNotification = async (title: string, body: string): Promis
         if ('serviceWorker' in navigator) {
             const registration = await navigator.serviceWorker.ready;
             if (registration) {
-                await registration.showNotification(title, {
-                    body,
-                    icon: '/favicon.svg',
-                    badge: '/favicon.svg',
-                    tag: 'healthcare-notification',
-                    renotify: true
-                } as any);
+                const notifOptions = { body, icon: '/favicon.svg', badge: '/favicon.svg', tag: 'healthcare-notification', renotify: true };
+                await registration.showNotification(title, notifOptions as NotificationOptions);
                 return true;
             }
         }

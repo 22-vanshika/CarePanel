@@ -1,0 +1,10 @@
+{
+    "kpis": [
+        { "label": "Total Patient Volume", "value": "1,742", "deltaValue": 12.5, "trend": "up" },
+        { "label": "Avg. Wait Time",        "value": "14.2m",  "deltaValue": 4.1,  "trend": "up" },
+        { "label": "Clinician Utilization", "value": "92.4%",  "deltaValue": 1.2,  "trend": "down" },
+        { "label": "Revenue Per Visit",     "value": "$248",   "deltaValue": 8.3,  "trend": "up" }
+    ],
+    "systemUptime": 99.9,
+    "defaultDateRange": "Apr 01 - Apr 30, 2026"
+}
