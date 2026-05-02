@@ -11,7 +11,7 @@ const COLORS: Record<string, string> = {
     ACTIVE: 'var(--color-success)',
     CRITICAL: 'var(--color-error)',
     OBSERVATION: 'var(--color-warning)',
-    DISCHARGED: 'var(--color-secondary)',
+    DISCHARGED: 'var(--color-text-muted)',
 };
 
 export const StatusPieChart: React.FC<StatusPieChartProps> = ({ data, title }) => {

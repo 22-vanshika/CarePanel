@@ -17,7 +17,7 @@ export const PatientRow: React.FC<PatientRowProps> = ({ name, initials, departme
       case 'ACTIVE': return 'bg-[var(--color-success)]/10 text-[var(--color-success)] border-[var(--color-success)]/20';
       case 'OBSERVATION': return 'bg-[var(--color-warning)]/10 text-[var(--color-warning)] border-[var(--color-warning)]/20';
       case 'DISCHARGED': return 'bg-[var(--color-secondary)]/10 text-[var(--color-text-muted)] border-[var(--color-secondary)]/80';
-      default: return 'bg-[var(--color-secondary)]/10 text-[var(--color-secondary)] border-[var(--color-secondary)]/20';
+      default: return 'bg-[var(--color-secondary)]/10 text-[var(--color-text-muted)] border-[var(--color-secondary)]/20';
     }
   };
 
