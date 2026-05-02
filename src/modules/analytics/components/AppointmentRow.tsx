@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 
 export interface AppointmentRowProps {
   time: string;
@@ -7,11 +7,11 @@ export interface AppointmentRowProps {
   accentColor: 'blue' | 'purple' | 'green' | 'red' | 'amber';
 }
 
-export const AppointmentRow: React.FC<AppointmentRowProps> = ({ time, patientName, type, accentColor }) => {
+export const AppointmentRow = memo<AppointmentRowProps>(({ time, patientName, type, accentColor }) => {
   const getAccentBorder = (color: string) => {
     switch(color) {
       case 'blue': return 'border-l-[3px] border-l-[var(--color-primary)]';
-      case 'purple': return 'border-l-[3px] border-l-[#8b5cf6]'; // fallback if no token
+      case 'purple': return 'border-l-[3px] border-l-[#8b5cf6]';
       case 'green': return 'border-l-[3px] border-l-[var(--color-success)]';
       case 'red': return 'border-l-[3px] border-l-[var(--color-error)] border-opacity-70';
       case 'amber': return 'border-l-[3px] border-l-[var(--color-warning)] border-opacity-70';
@@ -40,4 +40,4 @@ export const AppointmentRow: React.FC<AppointmentRowProps> = ({ time, patientNam
       </div>
     </div>
   );
-};
+});

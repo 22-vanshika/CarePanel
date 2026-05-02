@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 
 export interface AlertRowProps {
   patientName: string;
@@ -7,7 +7,7 @@ export interface AlertRowProps {
   readingValue: string;
 }
 
-export const AlertRow: React.FC<AlertRowProps> = ({ patientName, ward, readingLabel, readingValue }) => {
+export const AlertRow = memo<AlertRowProps>(({ patientName, ward, readingLabel, readingValue }) => {
   return (
     <div className="bg-[var(--color-error)]/[0.03] rounded-[var(--radius-md)] p-[var(--space-3)] border border-[var(--color-border)]">
       <div className="flex justify-between items-start mb-1">
@@ -19,4 +19,4 @@ export const AlertRow: React.FC<AlertRowProps> = ({ patientName, ward, readingLa
       <div className="text-[0.75rem] text-[var(--color-text-muted)]">{ward}</div>
     </div>
   );
-};
+});

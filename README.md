@@ -169,3 +169,11 @@ Open `http://localhost:5173` – Vite’s dev server will hot‑reload on file c
 | **Testing** | Add unit & integration tests with **Vitest** + **React Testing Library** for critical components (Login, PatientCard, Dashboard). |
 | **RBAC** | Implement a `UserRole` enum and guard routes/components based on role (e.g., admin vs. clinician). |
 | **CI/CD** | GitHub Actions workflow for lint, type‑check, and Vite preview deployment to Vercel. |
+
+- `shared/services/patientService.ts` exists in `shared/`
+  due to the analytics module's dependency on patient data.
+  In a true MFE deployment this would be resolved as an
+  independent API contract — the analytics module would call
+  a patient service endpoint rather than importing shared code.
+  This is the one deliberate architectural compromise made to
+  avoid cross-module imports while keeping the data layer clean.

@@ -1,12 +1,12 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { useAuthStore } from '../../../app/store/authStore';
+import { useAuthStore, selectUser } from '../../../app/store/authStore';
 import { Card } from '../../../shared/components/Card/Card';
 import { Button } from '../../../shared/components/Button/Button';
 import { StatCard } from '../../../shared/components/StatCard/StatCard';
-import { PatientRow } from '../../../shared/components/PatientRow/PatientRow';
-import { AppointmentRow } from '../../../shared/components/AppointmentRow/AppointmentRow';
-import { AlertRow } from '../../../shared/components/AlertRow/AlertRow';
+import { PatientRow } from '../components/PatientRow';
+import { AppointmentRow } from '../components/AppointmentRow';
+import { AlertRow } from '../components/AlertRow';
 import PageSkeleton from '../../../shared/components/PageSkeleton';
 
 import { usePatientStats } from '../hooks/usePatientStats';
@@ -17,7 +17,7 @@ import { useRecentAdmissions } from '../hooks/useRecentAdmissions';
 import staffInsights from '../../../mocks/analytics/staff-insights.json';
 
 export const DashboardPage: React.FC = () => {
-    const user = useAuthStore(state => state.user);
+    const user = useAuthStore(selectUser);
     const doctorName = user?.displayName ? user.displayName.split(' ')[0] : 'Sharma';
 
     const statsQuery = usePatientStats();

@@ -1,6 +1,6 @@
-import React from 'react';
-import { StatusBadge } from '../StatusBadge/StatusBadge';
-import type { PatientStatus } from '../../types/common';
+import { memo } from 'react';
+import { StatusBadge } from '@shared/components/StatusBadge/StatusBadge';
+import type { PatientStatus } from '@shared/types/common';
 
 export interface PatientRowProps {
   name: string;
@@ -10,7 +10,7 @@ export interface PatientRowProps {
   status: PatientStatus;
 }
 
-export const PatientRow: React.FC<PatientRowProps> = ({ name, initials, department, timeAgo, status }) => {
+export const PatientRow = memo<PatientRowProps>(({ name, initials, department, timeAgo, status }) => {
   const getInitialsClasses = (status: PatientStatus) => {
     switch (status) {
       case 'CRITICAL': return 'bg-[var(--color-error)]/10 text-[var(--color-error)] border-[var(--color-error)]/20';
@@ -38,4 +38,4 @@ export const PatientRow: React.FC<PatientRowProps> = ({ name, initials, departme
       </td>
     </tr>
   );
-};
+});

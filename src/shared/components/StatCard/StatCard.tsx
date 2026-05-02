@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Card } from '../Card/Card';
 
 type DeltaAccessory = {
@@ -95,7 +95,7 @@ const AccessoryRenderer: React.FC<{ accessory: StatCardAccessory }> = ({ accesso
   }
 };
 
-export const StatCard: React.FC<StatCardProps> = ({
+export const StatCard = memo<StatCardProps>(({
   label, value, variant = 'default', accessory
 }) => {
   const isDanger = variant === 'danger';
@@ -128,4 +128,4 @@ export const StatCard: React.FC<StatCardProps> = ({
       </div>
     </Card>
   );
-};
+});

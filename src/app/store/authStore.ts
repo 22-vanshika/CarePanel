@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import type { AuthUser } from '../../modules/auth/types';
 
-interface AuthState {
+export interface AuthState {
     user: AuthUser | null;
     isLoading: boolean;
     error: string | null;
@@ -26,3 +26,7 @@ export const useAuthStore = create<AuthState>()(
         { name: 'AuthStore' }
     )
 );
+
+export const selectUser = (state: AuthState) => state.user;
+export const selectAuthIsLoading = (state: AuthState) => state.isLoading;
+export const selectAuthError = (state: AuthState) => state.error;

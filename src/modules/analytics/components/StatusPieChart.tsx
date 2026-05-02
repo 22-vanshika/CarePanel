@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import type { ChartDataPoint } from '../types';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
 
@@ -14,7 +14,7 @@ const COLORS: Record<string, string> = {
     DISCHARGED: 'var(--color-text-muted)',
 };
 
-export const StatusPieChart: React.FC<StatusPieChartProps> = ({ data, title }) => {
+export const StatusPieChart = memo<StatusPieChartProps>(({ data, title }) => {
     return (
         <div className="card p-6 w-full h-[400px] flex flex-col">
             <h3 className="text-lg font-semibold text-[var(--color-text)] mb-6">{title}</h3>
@@ -50,4 +50,4 @@ export const StatusPieChart: React.FC<StatusPieChartProps> = ({ data, title }) =
             </div>
         </div>
     );
-};
+});

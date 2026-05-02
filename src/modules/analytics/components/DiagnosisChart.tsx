@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import type { ChartDataPoint } from '../types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
@@ -7,7 +7,7 @@ interface DiagnosisChartProps {
     title: string;
 }
 
-export const DiagnosisChart: React.FC<DiagnosisChartProps> = ({ data, title }) => {
+export const DiagnosisChart = memo<DiagnosisChartProps>(({ data, title }) => {
     return (
         <div className="card p-6 w-full h-[400px] flex flex-col">
             <h3 className="text-lg font-semibold text-[var(--color-text)] mb-6">{title}</h3>
@@ -33,4 +33,4 @@ export const DiagnosisChart: React.FC<DiagnosisChartProps> = ({ data, title }) =
             </div>
         </div>
     );
-};
+});

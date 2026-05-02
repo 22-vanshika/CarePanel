@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../modules/auth/hooks/useAuth';
-import { useAuthStore } from '../store/authStore';
+import { useAuthStore, selectUser } from '../store/authStore';
 import Input from '@shared/components/Input';
 import { NotificationBadge } from '../../modules/notifications/components/NotificationBadge';
 import { Vortex } from '../../shared/components/Vortex/Vortex';
@@ -17,7 +17,7 @@ const MainLayout: React.FC = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { logout } = useAuth();
-    const user = useAuthStore(state => state.user);
+    const user = useAuthStore(selectUser);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const dropdownRef = useRef<HTMLDivElement>(null);

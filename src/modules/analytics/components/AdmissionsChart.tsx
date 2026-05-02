@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import type { ChartDataPoint } from '../types';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
@@ -7,7 +7,7 @@ interface AdmissionsChartProps {
     title: string;
 }
 
-export const AdmissionsChart: React.FC<AdmissionsChartProps> = ({ data, title }) => {
+export const AdmissionsChart = memo<AdmissionsChartProps>(({ data, title }) => {
     return (
         <div className="card p-6 w-full h-[400px] flex flex-col">
             <h3 className="text-lg font-semibold text-[var(--color-text)] mb-6">{title}</h3>
@@ -32,4 +32,4 @@ export const AdmissionsChart: React.FC<AdmissionsChartProps> = ({ data, title })
             </div>
         </div>
     );
-};
+});

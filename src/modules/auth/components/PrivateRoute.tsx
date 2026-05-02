@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { useAuthStore } from '../../../app/store/authStore';
+import { useAuthStore, selectUser, selectAuthIsLoading } from '../../../app/store/authStore';
 
 interface PrivateRouteProps {
   children: React.ReactNode;
@@ -14,8 +14,8 @@ const FullScreenSpinner: React.FC = () => (
 );
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
-  const user = useAuthStore((state) => state.user);
-  const isLoading = useAuthStore((state) => state.isLoading);
+  const user = useAuthStore(selectUser);
+  const isLoading = useAuthStore(selectAuthIsLoading);
   const location = useLocation();
 
   if (isLoading) {

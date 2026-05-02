@@ -1,11 +1,11 @@
-import { useAuthStore } from '../../../app/store/authStore';
+import { useAuthStore, selectUser, selectAuthIsLoading, selectAuthError } from '../../../app/store/authStore';
 import { loginWithEmail, logout as firebaseLogout } from '../services/firebaseAuth';
 import type { LoginCredentials } from '../types';
 
 export const useAuth = () => {
-    const user = useAuthStore((state) => state.user);
-    const isLoading = useAuthStore((state) => state.isLoading);
-    const error = useAuthStore((state) => state.error);
+    const user = useAuthStore(selectUser);
+    const isLoading = useAuthStore(selectAuthIsLoading);
+    const error = useAuthStore(selectAuthError);
 
     const setLoading = useAuthStore((state) => state.setLoading);
     const setError = useAuthStore((state) => state.setError);
