@@ -2,9 +2,6 @@ import type { ApiResponse, PaginatedResponse } from '../../../shared/types/commo
 import type { Patient, PatientFilters } from '../types';
 import patientListData from '../../../mocks/patients/patient-list.json';
 
-// We import httpClient to satisfy the architectural requirement, 
-// but we use mock data for Phase 3.
-
 export const patientApi = {
   getPatients: async (filters: PatientFilters): Promise<PaginatedResponse<Patient>> => {
     return new Promise((resolve) => {

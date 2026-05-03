@@ -7,7 +7,7 @@ export interface AppointmentRowProps {
   accentColor: 'blue' | 'purple' | 'green' | 'red' | 'amber';
 }
 
-export const AppointmentRow = memo<AppointmentRowProps>(({ time, patientName, type, accentColor }) => {
+export const AppointmentRow = memo<AppointmentRowProps>(function AppointmentRow({ time, patientName, type, accentColor }) {
   const getAccentBorder = (color: string) => {
     switch(color) {
       case 'blue': return 'border-l-[3px] border-l-[var(--color-primary)]';

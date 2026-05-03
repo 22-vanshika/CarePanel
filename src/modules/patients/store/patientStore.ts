@@ -4,13 +4,11 @@ import type { ViewMode, PatientFilters } from '../types';
 
 interface PatientState {
   viewMode: ViewMode;
-  selectedPatientId: string | null;
   activeFilters: PatientFilters;
 }
 
 interface PatientActions {
   setViewMode: (mode: ViewMode) => void;
-  setSelectedPatient: (id: string | null) => void;
   updateFilters: (filters: Partial<PatientFilters>) => void;
   resetFilters: () => void;
 }
@@ -26,19 +24,16 @@ export const usePatientStore = create<PatientStore>()(
   devtools(
     (set) => ({
       viewMode: 'GRID',
-      selectedPatientId: null,
       activeFilters: initialFilters,
 
       setViewMode: (mode) => set({ viewMode: mode }, false, 'patient/setViewMode'),
-      
-      setSelectedPatient: (id) => set({ selectedPatientId: id }, false, 'patient/setSelectedPatient'),
-      
+
       updateFilters: (filters) => set(
-        (state) => ({ activeFilters: { ...state.activeFilters, ...filters } }), 
-        false, 
+        (state) => ({ activeFilters: { ...state.activeFilters, ...filters } }),
+        false,
         'patient/updateFilters'
       ),
-      
+
       resetFilters: () => set({ activeFilters: initialFilters }, false, 'patient/resetFilters')
     }),
     { name: 'PatientStore' }

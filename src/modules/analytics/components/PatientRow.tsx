@@ -10,7 +10,7 @@ export interface PatientRowProps {
   status: PatientStatus;
 }
 
-export const PatientRow = memo<PatientRowProps>(({ name, initials, department, timeAgo, status }) => {
+export const PatientRow = memo<PatientRowProps>(function PatientRow({ name, initials, department, timeAgo, status }) {
   const getInitialsClasses = (status: PatientStatus) => {
     switch (status) {
       case 'CRITICAL': return 'bg-[var(--color-error)]/10 text-[var(--color-error)] border-[var(--color-error)]/20';

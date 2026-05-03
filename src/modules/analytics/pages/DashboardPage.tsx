@@ -117,14 +117,13 @@ export const DashboardPage: React.FC = () => {
                                         <span className="text-[var(--color-text-muted)]">Discharges</span>
                                     </div>
                                 </div>
-                                <select className="bg-[var(--color-bg)] border border-[var(--color-border)] text-[0.6rem] text-[var(--color-text)] rounded-[var(--radius-md)] px-3 py-1 outline-none focus:border-[var(--color-primary)] transition-colors justify-self-end">
+                                <select defaultValue="This Week" className="bg-[var(--color-bg)] border border-[var(--color-border)] text-[0.6rem] text-[var(--color-text)] rounded-[var(--radius-md)] px-3 py-1 outline-none focus:border-[var(--color-primary)] transition-colors justify-self-end">
                                     <option>This Week</option>
                                     <option>Last Week</option>
                                 </select>
                             </div>
                         </div>
-                        <div className="flex-1 min-h-0">
-                            <ResponsiveContainer width="100%" height="100%">
+                        <ResponsiveContainer width="100%" height={280}>
                                 <BarChart data={stats.patientFlow} margin={{ top: 5, right: 0, left: -20, bottom: 5 }} barGap={8}>
                                     <defs>
                                         <linearGradient id="admissionGradient" x1="0" y1="0" x2="0" y2="1">
@@ -147,8 +146,7 @@ export const DashboardPage: React.FC = () => {
                                     <Bar dataKey="admissions" name="Admissions" fill="url(#admissionGradient)" radius={[4, 4, 0, 0]} barSize={16} />
                                     <Bar dataKey="discharges" name="Discharges" fill="url(#dischargeGradient)" radius={[4, 4, 0, 0]} barSize={16} />
                                 </BarChart>
-                            </ResponsiveContainer>
-                        </div>
+                        </ResponsiveContainer>
                     </Card>
 
                     {/* Recent Admissions Table */}

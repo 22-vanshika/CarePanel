@@ -8,11 +8,8 @@ import { onAuthStateChanged } from '../modules/auth/services/firebaseAuth'
 import { registerServiceWorker } from '../modules/notifications/services/notificationService'
 
 const App = () => {
-    const setUser = useAuthStore(state => state.setUser)
-    const setLoading = useAuthStore(state => state.setLoading)
-    const clearUser = useAuthStore(state => state.clearUser)
-
     useEffect(() => {
+        const { setUser, setLoading, clearUser } = useAuthStore.getState()
         setLoading(true)
         const unsubscribe = onAuthStateChanged((user) => {
             if (user) {
@@ -24,7 +21,7 @@ const App = () => {
         })
         registerServiceWorker()
         return unsubscribe
-    }, []) // eslint-disable-line react-hooks/exhaustive-deps
+    }, [])
 
 
     return (

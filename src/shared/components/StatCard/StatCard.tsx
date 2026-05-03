@@ -95,9 +95,9 @@ const AccessoryRenderer: React.FC<{ accessory: StatCardAccessory }> = ({ accesso
   }
 };
 
-export const StatCard = memo<StatCardProps>(({
+export const StatCard = memo<StatCardProps>(function StatCard({
   label, value, variant = 'default', accessory
-}) => {
+}) {
   const isDanger = variant === 'danger';
 
   return (

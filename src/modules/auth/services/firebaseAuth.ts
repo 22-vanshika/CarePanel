@@ -22,7 +22,11 @@ const auth = getAuth(app);
 
 const mapFirebaseUserToAuthUser = async (user: User): Promise<AuthUser> => {
   const tokenResult = await user.getIdTokenResult();
-  const role = (tokenResult.claims.role as UserRole) || 'VIEWER';
+  const VALID_ROLES: UserRole[] = ['ADMIN', 'DOCTOR', 'VIEWER'];
+  const claimedRole = tokenResult.claims.role;
+  const role: UserRole = VALID_ROLES.includes(claimedRole as UserRole)
+    ? (claimedRole as UserRole)
+    : 'VIEWER';
 
   return {
     uid: user.uid,
@@ -44,9 +48,13 @@ export const logout = async (): Promise<void> => {
 
 export const onAuthStateChanged = (callback: (user: AuthUser | null) => void): (() => void) => {
   return firebaseOnAuthStateChanged(auth, async (user) => {
-    if (user) {
-      callback(await mapFirebaseUserToAuthUser(user));
-    } else {
+    try {
+      if (user) {
+        callback(await mapFirebaseUserToAuthUser(user));
+      } else {
+        callback(null);
+      }
+    } catch {
       callback(null);
     }
   });

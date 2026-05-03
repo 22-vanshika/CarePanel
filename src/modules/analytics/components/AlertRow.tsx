@@ -7,7 +7,7 @@ export interface AlertRowProps {
   readingValue: string;
 }
 
-export const AlertRow = memo<AlertRowProps>(({ patientName, ward, readingLabel, readingValue }) => {
+export const AlertRow = memo<AlertRowProps>(function AlertRow({ patientName, ward, readingLabel, readingValue }) {
   return (
     <div className="bg-[var(--color-error)]/[0.03] rounded-[var(--radius-md)] p-[var(--space-3)] border border-[var(--color-border)]">
       <div className="flex justify-between items-start mb-1">

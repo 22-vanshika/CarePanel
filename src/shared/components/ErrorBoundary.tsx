@@ -28,7 +28,7 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
     };
 
     render() {
-        if (this.state.hasError || !this.props.children) {
+        if (this.state.hasError) {
             return (
                 <div className="flex items-center justify-center min-h-screen bg-[var(--color-bg)]">
                     <div className="card text-center p-8 flex flex-col items-center gap-4">
